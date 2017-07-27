@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Svit_WesternUnion>
+			<version>0.1.0</version>
+		</Svit_WesternUnion>
+	</modules>
+	<global>
+		<helpers>
+			<svit_westernunion>
+				<class>Svit_WesternUnion_Helper</class>
+			</svit_westernunion>
+		</helpers>
+		<blocks>
+			<svit_westernunion>
+				<class>Svit_WesternUnion_Block</class>
+			</svit_westernunion>
+		</blocks>
+		<models>
+			<svit_westernunion>
+				<class>Svit_WesternUnion_Model</class>
+			</svit_westernunion>
+		</models>
+		<resources>
+			<svit_westernunion_setup>
+				<setup>
+					<module>Svit_WesternUnion</module>
+				</setup>
+			</svit_westernunion_setup>
+		</resources>
+	</global>
+	<default>
+		<payment>
+			<svit_wu>
+				<active>1</active>
+				<model>svit_westernunion/payment</model>
+				<order_status>pending</order_status>
+				<title>Western Union</title>
+				<allowspecific>0</allowspecific>
+				<group>offline</group>
+			</svit_wu>
+		</payment>
+	</default>
+</config>

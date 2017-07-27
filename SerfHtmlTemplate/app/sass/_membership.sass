@@ -1,0 +1,245 @@
+@import "bourbon"
+@import "vars"
+
+
+/*================ membership pages ================*/
+.shift-text
+	margin-left: 20px
+
+.membership-page
+	.top-banners
+		background-color: $accent-color
+		padding: 55px 0
+		color: #fff
+		p 
+			font-size: 18px
+		h1
+			font-size: 36px
+	.top-banners.sup
+		background-color: $sup-color
+	table
+		width: 100%
+		text-align: left
+		margin: 20px 0
+		tbody
+			background-color: $table-color
+			font-family: "OpenSansSemiBold"
+			tr
+				&:hover
+					color: $accent-color
+		thead
+			font-size: 12px
+			text-transform: uppercase
+			color: #949494
+		td,
+		th
+			width: 25%
+			padding: 10px 20px
+		tr:not(:last-child)
+			border-bottom: 1px s id  #eeeeee
+		.bt-enrol
+			background-color: transparent
+			border: 1px solid $accent-color
+			color: $accent-color
+			transition: all 0.2s ease
+			padding: 9px 45px
+			&:hover
+				background-color: $accent-color
+				color: #fff
+
+.static-wrapper
+	padding-top: 50px
+	
+
+.breadcrumbs
+	margin: 20px 0
+	+ .static-wrapper
+		padding: 0
+	+ .category-masonry
+		padding: 0
+
+
+	ul 
+		margin: 0
+		li
+			display: inline-block
+			a
+				color: $accent-color
+				font-size: 14px
+				font-family: "OpenSansSemiBold"
+			&.active a
+				color: #767574
+				cursor: default
+			&:hover:not(:last-child) a
+				text-decoration: underline
+		i
+			margin: 0 5px
+
+
+/*================ membership pages - static-content ================*/
+.static-content
+	padding: 30px 30px 70px
+	background-color: #FFF
+	overflow: hidden
+	border-radius: 3px
+	transition: all 0.4s ease
+	> h2 
+		font-size: 24px
+		font-family: "OpenSansBold"
+		border-bottom: 1px solid #bcc6ce
+		padding-bottom: 20px
+	h3 
+		font-family: "OpenSansBold"
+	h4 
+		margin-top: 30px
+		text-transform: uppercase
+	h5 
+		margin: 20px 0 15px
+		span
+			font-family: "OpenSansLight"
+			font-weight: normal
+			font-style: italic
+	ul
+		margin-left: 20px 
+		margin-bottom: 35px
+		margin-top: 10px
+		li 
+			list-style-type: none
+			margin-left: 20px
+			position: relative
+			&::before
+				content: url(../img/li.svg)
+				position: absolute
+				left: -20px
+				top: -2px
+				
+	.static-category
+		margin-top: 70px
+	 
+
+
+/*================ membership pages - aside ================*/
+.membership-aside
+	padding: 30px 
+	background-color: #FFF
+	border-radius: 3px
+	li 
+		font-size: 16px
+		color: $accent-color
+		margin-bottom: 12px
+	.bt-enrol
+		margin-top: 20px
+		display: inline-block
+		text-align: center
+
+/*================ membership pages - membership form ================*/
+.form-content
+	h3
+		float: left
+	p 
+		font-size: 14px
+	.price
+		padding: 8px 45px
+		border-radius: 30px
+		background-color: #ccedd7
+		display: inline-block
+		text-transform: uppercase
+		font-size: 12px
+		font-weight: bold
+		float: right
+		span
+			display: inline-block
+			font-size: 24px
+			font-weight: normal
+			margin-left: 20px
+
+.chekbox-row
+	border-bottom: 1px solid #eeeeee
+	padding: 15px 0
+	.form-group
+		margin: 0
+	label
+		display: inline-block
+		width: 165px
+		text-transform: capitalize
+		font-size: 14px
+		color: #333
+	span
+		font-size: 14px
+		margin: 0 0 15px 0
+		display: block
+
+.step
+	h4
+		text-transform: capitalize
+		color: $accent-color
+		border-bottom: 1px solid #bcc6ce
+		padding-bottom: 20px
+	h6 
+		margin-bottom: 15px
+	.step-number
+		display: inline-block
+		text-align: center
+		line-height: 40px
+		border-radius: 50%
+		color: #fff
+		width: 40px
+		height: 40px
+		background-color: $accent-color
+		margin-right: 20px
+
+.step-1
+	label
+		text-transform: uppercase
+		color: #7f7f7f
+		font-size: 12px
+
+.step-3
+	h5
+		margin: 20px 0 4px
+	p 
+		margin-top: 0
+
+.step-5
+	.row
+		margin-bottom: 20px
+
+.icheckbox_flat-blue,
+.iradio_flat-blue 
+	display: inline-block
+	*display: inline
+	vertical-align: middle
+	margin: 0
+	padding: 0
+	width: 20px
+	height: 20px
+	background: url("../img/blue.png") no-repeat
+	border: none
+	cursor: pointer
+	margin-right: 7px
+
+.icheckbox_flat-blue 
+	background-position: 0 0
+
+.icheckbox_flat-blue.checked 
+	background-position: -24px 0
+
+.icheckbox_flat-blue.disabled 
+	background-position: -44px 0
+	cursor: default
+
+.icheckbox_flat-blue.checked.disabled, 
+.iradio_flat-blue 
+	background-position: -90px 0
+
+.iradio_flat-blue.checked 
+	background-position: -110px 0
+
+.iradio_flat-blue.disabled 
+	background-position: -132px 0
+	cursor: default 
+
+.iradio_flat-blue.checked.disabled 
+	background-position: -154px 0 
+
+

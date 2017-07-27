@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Magedev_Ordermanager>
+            <version>1.0.0</version>
+        </Magedev_Ordermanager>
+    </modules>
+    <frontend>
+        <routers>
+            <ordermanager>
+                <use>standard</use>
+                <args>
+                    <module>Magedev_Ordermanager</module>
+                    <frontName>ordermanager</frontName>
+                </args>
+            </ordermanager>
+        </routers>
+        <layout>
+            <updates>
+                <ordermanager>
+                    <file>ordermanager.xml</file>
+                </ordermanager>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<ordermanager>
+				<use>admin</use>
+				<args>
+					<module>Magedev_Ordermanager</module>
+					<frontName>ordermanager</frontName>
+				</args>
+			</ordermanager>
+        </routers>
+    </admin>
+    <adminhtml>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<orderview translate="title">
+											<title>Advance Order View</title>
+										</orderview>
+									</children>
+								</config>
+							</children>
+						</system>
+						<Magedev_Ordermanager>
+							<title>Ordermanager Module</title>
+							<sort_order>10</sort_order>
+						</Magedev_Ordermanager>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<ordermanager>
+					<file>ordermanager.xml</file>
+				</ordermanager>
+			</updates>
+		</layout>
+		
+		<events>
+            <adminhtml_block_html_before>
+                <observers>
+                    <sales_grid_action_options>
+                        <class>ordermanager/observer</class>
+                        <method>addOptionsToAction</method>
+                    </sales_grid_action_options>
+                </observers>
+            </adminhtml_block_html_before>
+        </events>
+		
+    </adminhtml>   
+    <global>
+     
+        <blocks>
+            <ordermanager>
+                <class>Magedev_Ordermanager_Block</class>
+            </ordermanager>
+			<adminhtml>
+				<rewrite>
+					<sales_order_grid>Magedev_Ordermanager_Block_Adminhtml_Order_Grid</sales_order_grid>
+				</rewrite>
+				
+			<!--	<rewrite>
+					 <customer_edit_tab_orders>Magedev_Ordermanager_Block_Adminhtml_Order_Customer_Edit_Tab_Orders_Grid</customer_edit_tab_orders>
+				</rewrite>-->
+				
+				<rewrite>
+					<sales_order_status_grid>Magedev_Ordermanager_Block_Adminhtml_Order_Status_Grid</sales_order_status_grid>
+				</rewrite>
+				
+				<rewrite>
+					<sales_order_status_new_form>Magedev_Ordermanager_Block_Adminhtml_Order_Status_New_Form</sales_order_status_new_form>
+				</rewrite>
+				
+				<rewrite>
+					<sales_order_status_edit_form>Magedev_Ordermanager_Block_Adminhtml_Order_Status_Edit_Form</sales_order_status_edit_form>
+				</rewrite>
+				
+		<!--		<rewrite>
+                    <sales_order_view_tab_invoices>Magedev_Ordermanager_Block_Adminhtml_Sales_Order_View_Tab_Invoices</sales_order_view_tab_invoices>
+				</rewrite>-->
+				
+			</adminhtml>
+        </blocks>
+		
+		<models>
+			<!-- invoice status starts-->
+			<sales>
+			  <rewrite>
+				  <order_invoice>Magedev_Ordermanager_Model_Order_Invoice</order_invoice>
+			  </rewrite>
+			</sales>
+			<!-- invoice status ends-->
+			
+			
+			<sales_resource>
+                <rewrite>
+                    <order_grid_collection>Magedev_Ordermanager_Model_Resource_Order_Grid_Collection</order_grid_collection>
+                </rewrite>
+            </sales_resource>
+			
+			
+			<ordermanager>
+				<class>Magedev_Ordermanager_Model</class>
+				<resourceModel>ordermanager_mysql4</resourceModel>
+			</ordermanager>
+															
+			<ordermanager_mysql4>
+				<class>Magedev_Ordermanager_Model_Mysql4</class>
+			</ordermanager_mysql4>
+															
+	    </models>
+		
+		<resources>
+            <ordermanager_setup>
+                <setup>
+                    <module>Magedev_Ordermanager</module>
+                    <!--<class>Mage_Sales_Model_Mysql4_Setup</class>-->
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ordermanager_setup>
+			
+			<ordermanager_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ordermanager_write>
+            <ordermanager_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ordermanager_read>
+			
+        </resources>
+		
+        <helpers>
+            <ordermanager>
+                <class>Magedev_Ordermanager_Helper</class>
+            </ordermanager>
+        </helpers>
+    </global>
+	
+		<default>
+        <orderview>
+			
+			<license>
+				<lserial>2fb30e65a8eeda620a29583268690f6a</lserial>
+			</license>
+            
+			<general>
+                <enabled>1</enabled>
+
+			 	<fixed_header>1</fixed_header>
+                <hide_product_view>1</hide_product_view>
+				
+				<order_grid_col>real_order_id,store_id,created_at,product_detail,payment_method,shipping_method,billing_name,shipping_name,base_grand_total,grand_total,status,order_type,action</order_grid_col>
+
+<order_status_color>
+canceled|FFE8F5,complete|FAD8CC,holded|ffffff,closed|FFBFAE,processing|CAF9B3,pending|CCCCCC,pending_payment|FDFAB1,pending_paypal|ffffff,fraud|ffffff,payment_review|F7F17F
+				</order_status_color>
+
+
+				<notify_customer_oninvoice>0</notify_customer_oninvoice> 
+				<notify_customer_onship>0</notify_customer_onship> 
+				<product_thumb_size>50</product_thumb_size>
+				<product_count>3</product_count>
+				
+				<product_name_limit>50</product_name_limit>
+				<comments_limit>1</comments_limit>
+				<custom_option_limit>50</custom_option_limit>
+             </general> 
+			 
+			 <order_arch_mng>
+			 	<enable_archieve>0</enable_archieve>
+			 </order_arch_mng>
+			 <broadcast_mng>
+			 	<allow_broadcast>1</allow_broadcast>
+			 </broadcast_mng>
+			 <mass_act_mng>
+			 	<add_mass_invoce>1</add_mass_invoce>
+				<add_mass_ship>1</add_mass_ship>
+				<add_mass_ico>1</add_mass_ico>
+				<add_mass_icon>1</add_mass_icon>
+				<add_mass_icoffship>1</add_mass_icoffship>
+				<add_mass_iconship>1</add_mass_iconship>
+				<add_mass_archieve>1</add_mass_archieve>
+				<add_mass_active>1</add_mass_active>
+				<add_mass_delete>1</add_mass_delete>
+			 </mass_act_mng>
+			 <deletemng>
+			 	<allow_delete>1</allow_delete>
+			 </deletemng>
+			 <delete_inv_mng>
+			 	<delete_inv>1</delete_inv>
+			 </delete_inv_mng>
+			 <delete_ship_mng>
+			 	<delete_ship>1</delete_ship>
+			 </delete_ship_mng>
+			 <delete_credit_mng>
+			 	<delete_credit>1</delete_credit>
+			 </delete_credit_mng>
+			 <delete_in_ship_cr_mng>
+			 	<delete_in_ship_cr>1</delete_in_ship_cr>
+			 </delete_in_ship_cr_mng>
+			 
+         </orderview>
+    </default>	
+	
+	<crontab>
+        <jobs>
+            <ordermanager_archive>
+                <schedule>
+					<cron_expr>* 0 * * *</cron_expr>
+				</schedule>
+                <run>
+					<model>ordermanager/observer::autosetArchieveOrders</model>
+				</run>
+            </ordermanager_archive>
+        </jobs>
+    </crontab>
+	
+</config>

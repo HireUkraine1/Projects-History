@@ -1,0 +1,26 @@
+<?php
+
+namespace MusicBrainz\HttpAdapters;
+
+/**
+ * MusicBrainz HTTP Client interface
+ */
+abstract class AbstractHttpAdapter
+{
+    /**
+     * @var string
+     */
+    const URL = 'http://musicbrainz.org/ws/2';
+
+    /**
+     * Perform an HTTP request on MusicBrainz
+     *
+     * @param  string $path
+     * @param  array $params
+     * @param  array $options
+     * @param  boolean $isAuthRequired
+     *
+     * @return array
+     */
+    abstract public function call($path, array $params = array(), array $options = array(), $isAuthRequired = false);
+}

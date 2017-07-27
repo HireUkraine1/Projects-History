@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Svit_Dollar>
+            <version>0.0.1</version>
+        </Svit_Dollar>
+    </modules>
+    <global>
+        <helpers>
+            <dollar>
+                <class>Svit_Dollar_Helper</class>
+            </dollar>
+        </helpers>
+    </global>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <svit>
+                                            <title>Svit - All</title>
+                                        </svit>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

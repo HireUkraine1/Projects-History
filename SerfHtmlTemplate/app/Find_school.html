@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+	<meta charset="utf-8">
+	
+	<title>Find School</title>
+	
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<meta property="og:image" content="path/to/image.jpg">
+	<link rel="shortcut icon" href="/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/img/favicon/apple-touch-icon-114x114.png">
+	<!-- font aswesome -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- libs css -->
+	<link rel="stylesheet" href="/css/libs.min.css">
+	<!-- custom css -->
+	<link rel="stylesheet" href="/css/main.min.css">
+
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#000">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#000">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#000">
+</head>
+
+<body class="page search-page">
+	<!--**************** header ****************-->
+	<header>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<nav>
+					<!-- logo -->
+						<div class="main-logo">
+							<a href="index.html"><img src="img/logo.png" alt="ASI"></a>
+						</div>
+					<!-- hamburger -->
+						<div class="hamburger-menu">
+							  <div class="bar"></div>	
+						</div>
+					<!-- main navigation -->
+						<div class="main-nav">
+							<!-- desktop menu -->
+							<div class="navigation">
+								<ul class="menu-item">
+									<li><a href="Find_school.html">Find School</a></li>
+									<li><a href="For_Instructors.html">For Instructors</a></li>
+									<li><a href="ASI_Membership.html">Membership</a></li>
+									<li><a href="#">Contacts</a></li>
+								</ul>
+								<ul class="sign-in">
+									<li><a href="#">Log In</a></li>
+									<li class="bt focus-btn"><a href="#">Sign Up</a></li>
+								</ul>
+							</div>
+							<!-- mobile menu -->
+							<div class="mobile-mnu">
+								<ul class="surf-list category-list"	style="display: none;">
+									<li><a href="#">Welcome</a></li>
+									<li><a href="#">Experiences</a></li>
+									<li><a href="#">Pathways</a></li>
+									<li><a href="#">SUP Wise</a></li>
+									<li><a href="#">Instructor Training</a></li>
+									<li><a href="#">SUP Schools</a></li>
+									<li><a href="#">Clubs</a></li>
+									<li><a href="#">Resources</a></li>
+									<li><a href="#">SUP Safety</a></li>
+								</ul>
+							</div>
+							<!-- category -->
+							<ul class="main-category">
+								<li class="bt surf-btn"><a data-id=".surf-list" href="SUP_About.html">surf</a></li>
+								<li class="bt sup-btn"><a href="SUP_About.html">sup</a></li>
+								<li class="bt board-btn"><a href="BBoard_about.html">bboard</a></li>
+							</ul>
+						</div>						
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!--**************** "main-content ****************-->
+	<div class="main-content">
+		<div class="top-banners">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<form class="filterForm">
+							<div class="drop-menu">
+								<div class="select">
+									<span>Select Country</span>
+									<i class="fa fa-chevron-down"></i>
+								</div>
+								<input type="hidden" name="country">
+								<ul class="dropeddown" data-filter-group="country">
+									<li data-filter="">All</li>
+									<li data-filter=".au">Australia</li>
+								</ul>
+							</div>
+							<div class="drop-menu">
+								<div class="select">
+									<span>Select</span>
+									<i class="fa fa-chevron-down"></i>
+								</div>
+								<input type="hidden" name="cat">
+								<ul class="dropeddown" data-filter-group="category">
+									<li data-filter="">All</li>
+									<li data-filter=".surf">Surfing</li>
+									<li data-filter=".sup">SUP</li>
+									<li data-filter=".board">Bboard</li>
+								</ul>
+							</div>
+							<div class="drop-menu">
+								<div class="select">
+									<span>Select Activity</span>
+									<i class="fa fa-chevron-down"></i>
+								</div>
+								<input type="hidden" name="activity">
+								<ul class="dropeddown" data-filter-group="activity">
+									<li data-filter="">All</li>
+									<li data-filter=".yoga">Yoga</li>
+									<li data-filter="">Tours</li>
+								</ul>
+							</div>
+							<a class="button-form search-btn">Search</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="school-map">
+			<div id="locationField">
+			  <input id="autocomplete" placeholder="Enter a city" type="text" />
+			</div>
+
+			<div id="controls">
+			  <select id="country">
+			    <option value="all" >All</option>
+			    <option value="au">Australia</option>
+			    <option value="br">Brazil</option>
+			    <option value="ca">Canada</option>
+			    <option value="fr">France</option>
+			    <option value="de">Germany</option>
+			    <option value="mx">Mexico</option>
+			    <option value="nz">New Zealand</option>
+			    <option value="it">Italy</option>
+			    <option value="za">South Africa</option>
+			    <option value="es">Spain</option>
+			    <option value="pt">Portugal</option>
+			    <option value="us" selected>U.S.A.</option>
+			    <option value="uk">United Kingdom</option>
+			  </select>
+			</div>
+			<div id="map"></div>
+		</div>
+		
+		<div class="school-grid">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="grid">
+						<!--**************** grid ****************-->
+							<div class="course-wrapper surf  au">
+								<a href="#">
+									<div class="course-item">
+										<div class="course-img">
+											<img src="/img/search/img-1.jpg" alt="course">
+										</div>
+										<div class="course-description">
+											<h5>Philippine Surfing Academy </h5>
+											<p class="bt surf-btn">surf</p>
+											<p>Sydney, New South Wales Australia</p>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="course-wrapper surf  au">
+								<a href="#">
+									<div class="course-item">
+										<div class="course-img">
+											<img src="/img/search/img-1.jpg" alt="course">
+										</div>
+										<div class="course-description">
+											<h5>Freedom Surf Camp Camp Camp Camp</h5>
+											<p class="bt board-btn">bboard</p>
+											<p>Sydney, New South Wales Australia</p>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="course-wrapper sup ">
+								<a href="#">
+									<div class="course-item">
+										<div class="course-img">
+											<img src="/img/search/img-2.jpg" alt="course">
+										</div>
+										<div class="course-description">
+											<h5>Philippine Surfing Academy</h5>
+											<p class="bt sup-btn">sup</p>
+											<p>Sydney, New South Wales Australia</p>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="course-wrapper ">
+								<a href="#">
+									<div class="course-item">
+										<div class="course-img">
+											<img src="/img/search/img-3.jpg" alt="course">
+										</div>
+										<div class="course-description">
+											<h5>Waves Surf School</h5>
+											<p class="bt surf-btn">surf</p>
+											<p class="bt sup-btn">sup</p>
+											<p class="bt board-btn">bboard</p>
+											<p>Sydney, New South Wales Australia</p>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="course-wrapper ">
+								<a href="#">
+									<div class="course-item">
+										<div class="course-img">
+											<img src="/img/search/img-4.jpg" alt="course">
+										</div>
+										<div class="course-description">
+											<h5>Philippine Surfing Academy  </h5>
+											<p class="bt surf-btn">surf</p>
+											<p>Sydney, New South Wales Australia</p>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="course-wrapper au yoga ">
+								<a href="#">
+									<div class="course-item">
+										<div class="course-img">
+											<img src="/img/search/img-3.jpg" alt="course">
+										</div>
+										<div class="course-description">
+											<h5>Philippine Surfing Academy </h5>
+											<p class="bt board-btn">bboard</p>
+											<p>Sydney, New South Wales Australia </p>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="course-wrapper  au">
+								<a href="#">
+									<div class="course-item">
+										<div class="course-img">
+											<img src="/img/search/img-2.jpg" alt="course">
+										</div>
+										<div class="course-description">
+											<h5>Philippine Surfing Academy Academy Academy </h5>
+											<p class="bt surf-btn">surf</p>
+											<p class="bt board-btn">bboard</p>
+											<p>Sydney, New South Wales Australia</p>
+										</div>
+									</div>
+								</a>
+							</div>
+							<div class="course-wrapper  ">
+								<a href="#">
+									<div class="course-item">
+										<div class="course-img">
+											<img src="/img/search/img-1.jpg" alt="course">
+										</div>
+										<div class="course-description">
+											<h5>Philippine Surfing Academy </h5>
+											<p class="bt board-btn">bboard</p>
+											<p>Sydney, New South Wales Australia</p>
+										</div>
+									</div>
+								</a>
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</div>
+						
+	
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="footer-logo">
+						<img src="/img/footer-logo.png" alt="ASI">
+					</div>
+					<div class="footer-nav">
+						<div class="footer-menu">
+							<ul>
+								<li><a href="#">surf</a></li>
+								<li><a href="#">sup</a></li>
+								<li><a href="#">bboard</a></li>
+							</ul>
+							<ul>
+								<li><a href="#">Complaints</a></li>
+								<li><a href="#">Privacy</a></li>
+								<li><a href="#">Refund</a></li>
+							</ul>
+							<ul>
+								<li><a href="#">About</a></li>
+								<li><a href="#">Feedback</a></li>
+								<li><a href="#">Copyright</a></li>
+							</ul>
+							<ul>
+								<li><a href="#">Membership</a></li>
+								<li><a href="#">World Map</a></li>
+								<li><a href="#">Contacts</a></li>
+							</ul>
+						</div>
+						<div class="contacts-info">
+							<h6>Contacts:</h6>
+							<ul>
+								<li><a href="mailto: info@academyofsurfing.com">info@academyofsurfing.com</a></li>
+								<li>ASI.Intl</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"> ></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTjph1VLw0qsI2herAIgHCwWVwpgg4tX0&signed_in=false&libraries=places,geometry&callback=initMap"
+    async defer></script>
+	<!-- all libs scripts -->
+	<script src="/js/scripts.min.js"></script>
+	<script src="/js/map.js"></script>
+	<!-- custon js -->
+	<script src="/js/common.js"></script>
+
+</body>
+</html>
+

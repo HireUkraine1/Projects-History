@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Svit_ManeyGram>
+			<version>0.1.0</version>
+		</Svit_ManeyGram>
+	</modules>
+	<global>
+		<helpers>
+			<svit_maneygram>
+				<class>Svit_ManeyGram_Helper</class>
+			</svit_maneygram>
+		</helpers>
+		<blocks>
+			<svit_maneygram>
+				<class>Svit_ManeyGram_Block</class>
+			</svit_maneygram>
+		</blocks>
+		<models>
+			<svit_maneygram>
+				<class>Svit_ManeyGram_Model</class>
+			</svit_maneygram>
+		</models>
+		<resources>
+			<svit_maneygram_setup>
+				<setup>
+					<module>Svit_ManeyGram</module>
+				</setup>
+			</svit_maneygram_setup>
+		</resources>
+	</global>
+	<default>
+		<payment>
+			<svit_mg>
+				<active>1</active>
+				<model>svit_maneygram/payment</model>
+				<order_status>pending</order_status>
+				<title>Money Gram</title>
+				<allowspecific>0</allowspecific>
+				<group>offline</group>
+			</svit_mg>
+		</payment>
+	</default>
+</config>

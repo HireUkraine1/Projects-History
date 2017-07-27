@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Svit_Order>
+            <version>0.0.1</version>
+        </Svit_Order>
+    </modules>
+    <global>
+        <models>
+            <sales>
+                <rewrite>
+                    <order>Svit_Order_Model_Order</order>
+                </rewrite>
+            </sales>
+        </models>
+        <resources>
+            <svitorder_setup>
+                <setup>
+                    <module>Svit_Order</module>
+                </setup>
+            </svitorder_setup>
+        </resources>
+    </global>
+</config>
+
+
+

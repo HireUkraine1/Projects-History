@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <svit translate="label" module="dollar">
+            <label>Pound exchange</label>
+            <sort_order>100</sort_order>
+        </svit>
+    </tabs>
+    <sections>
+        <svit translate="label" module="dollar">
+            <label>GBP Exchange Rate</label>
+            <tab>svit</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+
+            <groups>
+                <svit_group translate="label" module="dollar">
+                    <label>Dollar exchange </label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+
+                    <fields>
+                        <svit_input translate="label">
+                            <label>Exchange rate: </label>
+                            <comment>Specify "dollars per pound" exchange rate</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </svit_input>
+                    </fields>
+                </svit_group>
+            </groups>
+        </svit>
+    </sections>
+</config>

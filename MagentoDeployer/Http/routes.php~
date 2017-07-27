@@ -1,0 +1,54 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| This route group applies the "web" middleware group to every route
+| it contains. The "web" middleware group is defined in your HTTP
+| kernel and includes session state, CSRF protection, and more.
+|
+*/
+
+Route::group(['middleware' => ['web']], function () {
+
+    Route::group(['middleware' => ['guest']], function () {      
+
+        # Authentication SuperAdmin       
+        Route::get('/', [
+        'uses' => 'SessionContrloller@login'
+        ]);
+
+        Route::POST('/', [
+        'uses' => 'SessionContrloller@loginPost'
+        ]);
+        # Authentication SuperAdmin End
+        
+     
+        
+    }); 
+    
+
+    Route::group( ['middleware' => ['auth']], function () {
+        
+        Route::group( [ 'prefix' => 'dashboard'], function () {
+        
+                Route::get('/', [
+
+                    'uses' => 'Protect\AdminDashboard@index'
+                ]);
+
+                Route::get('/logout', [
+
+                    'uses' => 'SessionContrloller@logout'
+                ]);
+ 
+        });
+       
+    });
+    
+    
+   
+    
+});

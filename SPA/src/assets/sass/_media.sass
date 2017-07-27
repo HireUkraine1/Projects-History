@@ -1,0 +1,220 @@
+@import "vars"
+
+/*==========  Desktop First  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width: 1199px)
+/**/
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width: 991px)
+  /**/
+
+  header
+    height: auto
+
+  .steps
+    padding: 30px 0
+  .steps-items:not(:last-child)
+    margin-bottom: 50px
+
+  .header-titile
+    h1
+      font-size: 38px
+      margin-top: 30px
+
+  .benefit-item
+    display: block
+
+  .benefit-item.reverse,
+  .benefit-item
+    img
+      margin: 0
+    img
+      margin: 0
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 767px)
+  /**/
+
+  .sign-nav
+    margin-right: 100px
+
+  .toggle_mnu
+    display: block
+
+  .main-nav
+    display: none
+
+  .mob-nav
+    position: fixed
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, .85)
+    z-index: 50
+    right: 0
+    top: 0
+    text-align: center
+    animation-duration: 0.1s
+    z-index: 10
+    display: flex
+    flex-direction: column
+    justify-content: center
+    &.active
+      li
+        top: 0
+        &:hover
+          background-color: rgba(120, 123, 123, 0.47)
+        a
+          color: #fff !important
+    li
+      margin: 0 0 30px 0 !important
+      position: relative
+      transition: all 0.5s ease
+      a
+        display: block
+        padding: 17px 0
+        color: #fff
+        &::after
+          display: none
+
+      &:nth-child(1)
+        webkit-animation-delay: 0s
+        animation-delay: 0s;
+      &:nth-child(2)
+        webkit-animation-delay: .2s
+        animation-delay: .2s;
+      &:nth-child(3)
+        webkit-animation-delay: .3s
+        animation-delay: .3s;
+
+  h1
+    font-size: 24px !important
+
+  .sign-section
+    h2
+      font-size: 28px
+  section
+    h2
+      font-size: 28px
+
+  .top-line.sticky
+    nav
+      padding: 20px 0
+
+  /*Disable Animation on Mobile Devices*/
+  .animated
+    -o-transition-property: none !important
+    -moz-transition-property: none !important
+    -ms-transition-property: none !important
+    -webkit-transition-property: none !important
+    transition-property: none !important
+    -o-transform: none !important
+    -moz-transform: none !important
+    -ms-transform: none !important
+    -webkit-transform: none !important
+    transform: none !important
+    -webkit-animation: none !important
+    -moz-animation: none !important
+    -o-animation: none !important
+    -ms-animation: none !important
+    animation: none !important
+
+  .features
+    .col-md-3
+      width: 50%
+
+  nav a::after
+    content: ""
+    display: none
+
+  .descr-wrap
+    display: block
+    .descr
+      width: 100%
+      padding: 30px 0
+      &:first-child
+        border-right: none
+        border-bottom: 1px solid #eeb146
+
+@media only screen and (max-width: 620px)
+  /**/
+  .contact-us
+    form
+      width: 100%
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px)
+  /**/
+  .test-request
+    .input-holder
+      width: 100%
+    input
+      display: block
+      width: 100%
+      margin-bottom: 10px
+      border-radius: 3px !important
+    button
+      width: 100%
+      border-radius: 3px !important
+
+  header
+  // background-image: url("../img/banner-mob.jpg")
+
+  .visual-testing
+    padding: 50px 0
+
+  .visual-testing
+    background-attachment: inherit
+
+// nav
+// 	display: block
+// 	padding: 5px 0
+// 	ul
+// 		text-align: center
+// 		display: block
+// 		margin: 10px 0
+// 		li
+// 			display: inline-block
+
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width: 320px)
+/**/
+
+
+
+/*==========  Mobile First  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px)
+/**/
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width: 480px)
+/**/
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px)
+  /**/
+
+  .main-nav,
+  .sign-nav
+    display: flex !important
+
+  .mob-nav
+    display: none !important
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width: 992px)
+/**/
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width: 1200px)
+/**/
+

@@ -1,0 +1,207 @@
+@import "bourbon"
+@import "vars"
+
+/*==========  Desktop First  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+	/**/
+	.insta-wrap
+		ul
+			justify-content: flex-start
+
+	.banner 
+		h2
+			font-size: 50px
+
+	.testimonials-border::after
+		right: 50.3%
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 1100px)
+	.sf-menu 
+		ul
+			width: 14em
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	/**/
+	.footer-menu
+		flex-wrap: wrap
+		justify-content: space-around
+
+	.testimonials-border::after
+		right: 50.5%
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px)
+	/**/
+	.desktop-menu
+		display: none
+
+	.toggle-mnu 
+		display: block
+
+	.main-nav
+		padding: 14px 0
+
+	.top-navigation
+		padding: 10px 0
+
+	.toggle-mnu
+		margin-bottom: 0
+
+	.banner 
+		h2
+			font-size: 50px
+
+	.category-item
+		width: 380px
+		margin: 0 auto
+
+	.footer-menu
+		.footer-categories
+			display: none
+		ul,
+		.footer-logo
+			margin-right: 20px
+			margin-bottom: 15px
+
+	.faq-page
+		.faq-img
+			text-align: center
+			img
+				display: inline-block
+				width: 130px
+
+	.contacts-info
+		margin-top: 50px
+		text-align: center
+
+	.testimonials-border::before
+		right: 50%
+
+	.recent-post 
+		.post-item
+			img
+				float: none
+				margin-bottom: 20px
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	/**/
+	.banner 
+		h2
+			font-size: 30px
+
+	.category-item
+		width: 95%
+
+	form.subscr input
+		width: 100%
+
+	.insta-wrap
+		ul
+			li
+				width: 100px
+				height: 100px
+
+	.footer-menu
+		display: block
+		text-align: center
+		ul
+			display: inline-block
+			vertical-align: top
+			text-align: left
+			li
+				margin-bottom: 10px
+
+	.footer-logo
+		text-align: center
+
+	.social 
+		a
+			font-size: 22px
+	
+	.product-item
+		width: 70%
+		margin: 0 auto
+		float: none
+
+	.banner 
+		img
+			max-width: 280px
+
+	.testimonials-item 
+		padding: 10px 0 0
+		p
+			font-size: 14px
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 414px)
+	/**/
+	.testimonials-border::after
+		right: 50.8%
+
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 380px)
+	/**/
+	.footer-menu
+		justify-content: center
+		.footer-logo
+			margin: 0 20px 20px 0
+
+	.footer-menu
+		ul
+			margin-right: 8px
+
+	.product-item
+		width: 100%
+
+	.testimonials-border::after
+		right: 50.8%
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+	/**/
+
+	.testimonials-border::after
+		right: 51%
+
+
+/*==========  Mobile First  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px)
+	/**/
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px)
+	/**/
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px)
+	/**/
+	.toggle-mnu
+		display: none
+	.toggle-mnu, #mobile-menu, html.mm-blocking #mm-blocker
+		display: none
+	html.mm-opening .mm-slideout
+		transform: translate(0px, 0px)
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+	/**/
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px)
+	/**/
+

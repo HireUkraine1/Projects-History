@@ -1,0 +1,22 @@
+<div class="all-browsers" [hidden]="IsHidden">
+    browsers list will be here
+    <button class="btn btn-primary">Edit</button>
+
+    <div class="browser-select">
+        <table>
+            <tr *ngFor="let br of browser">
+                <td>
+                    <p-checkbox name="group1" value="{{br.browser}} " label="{{br.browser}} {{br.version}}"
+                                [(ngModel)]="selectedLinks3"></p-checkbox>
+                </td>
+                <td *ngFor="let sz of br.size">
+                    <p-checkbox name="group1" value="{{br.browser}} {{sz.resize}} " label="{{sz.resize}}"
+                                [(ngModel)]="selectedLinks3"></p-checkbox>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!--remove it-->
+Selected : <span *ngFor="let city of selectedLinks3" style="margin-right:10px">{{city}}</span>

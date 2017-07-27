@@ -1,0 +1,514 @@
+// Defaults
+html {
+  height: 100%;
+}
+
+body {
+  color: #000;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  letter-spacing: 0.3pt;
+}
+
+.modal-open {
+  overflow: auto;
+  overflow-x: hidden;
+}
+.modal{
+  background: rgba(0 , 0 , 0 , 0.7);
+  z-index: 9999;
+}
+.modal-content{
+  border-radius: 0;
+}
+.modal-header{
+  padding: 3px 5px;
+}
+a, a:hover, a:focus {
+  -webkit-transform: translate(0, 0);
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover, a:focus {
+  color: #787878;
+}
+
+p.highlight {
+  font-size: 21px;
+}
+
+h1 {
+  font-weight: 300;
+  font-size: 50px;
+  margin: 0;
+  padding: 0;
+  line-height: 58px;
+  letter-spacing: 1pt;
+}
+
+h1.sub1 {
+  font-size: 46px;
+}
+
+h2 {
+  font-size: 44px;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+
+h2.sub1 {
+  font-size: 40px;
+}
+
+h2.sub2 {
+  font-size: 20px;
+  color: $brand-highlight1;
+}
+
+h2.sub3 {
+  font-size: 38px;
+}
+
+p {
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0.6pt;
+}
+
+.mussel-1 {
+  background: url('/uploads/mussel_1.jpg') no-repeat left -21px;
+  min-height: 600px;
+}
+
+// Labels
+.label-line {
+  width: 222px;
+  height: 39px;
+  text-align: center;
+  line-height: 37px !important;
+  vertical-align: middle;
+  border: 2px solid $brand-highlight1;
+  font-weight: 400;
+  margin-bottom: 45px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.label-full {
+  background: $brand-highlight1;
+  color: #fff;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.wood-1 {
+  background: url('/uploads/wood_full_1.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  display: block;
+  box-shadow: 0px -2px 25px 0px #939292;
+  -webkit-box-shadow: 0px -2px 25px 0px #939292;
+  -moz-box-shadow: 0px -2px 25px 0px #939292;
+}
+
+.wood-2 {
+  background: url('/uploads/wood_full_2.jpg') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  display: block;
+  padding: 20px 0 100px 0;
+}
+
+.package-1 {
+  background: url('/uploads/package_1.png') no-repeat 0 0;
+  width: 542px;
+  height: 423px;
+  float: right;
+  margin: 169px -100px 0 0;
+}
+
+#history {
+  margin-top: 84px;
+}
+
+.recipe-item {
+  margin-bottom: 100px;
+  .center-block {
+    cursor: pointer;
+  }
+
+  p {
+    color: $brand-highlight1;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      float: left;
+      border-right: 1px solid $brand-highlight1;
+      height: 20px;
+      line-height: 20px;
+      margin: 0 10px 15px 0;
+      padding: 0 10px 0 0;
+    }
+    li:last-child {
+      border-right: none;
+    }
+    a {
+      font-weight: bolder;
+      font-size: 22px;
+    }
+  }
+}
+
+.contact-lines {
+  list-style: none;
+  padding: 0;
+  margin: 30px 0 0 0;
+  li {
+    float: left;
+    border-right: 1px solid $brand-highlight1;
+    height: 20px;
+    line-height: 20px;
+    margin: 0 10px 15px 0;
+    padding: 0 10px 0 0;
+  }
+  li:last-child {
+    border-right: none;
+  }
+  address {
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+  }
+}
+
+.play-btn {
+  background: url('/uploads/play.png') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  display: block;
+  margin: -63px 30px 0 0;
+  right: 0;
+  z-index: 99;
+}
+
+#logo-1 {
+  margin-top: -30px;
+}
+
+footer {
+  width: 100%;
+  min-height: 500px;
+  background: #000;
+  color: #fff;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 35px;
+  }
+  a {
+    color: #fff;
+  }
+
+  a:hover, a:focus {
+    color: #bababa;
+  }
+
+  #social {
+    margin: 0;
+    padding: 0;
+    li {
+      text-align: right;
+      float: right;
+      margin-bottom: 19px;
+    }
+    .facebook_icon {
+      background: url('/uploads/facebook.png') no-repeat scroll 0 0;
+      width: 52px;
+      height: 52px;
+      text-indent: 999em;
+      display: block;
+      margin-left: 36px;
+
+    }
+    .instagram_icon {
+      background: url('/uploads/instagram.png') no-repeat scroll 0 0;
+      width: 52px;
+      height: 52px;
+      text-indent: 999em;
+      display: block;
+      margin-left: 36px;
+    }
+  }
+}
+
+#input-email {
+  width: 396px;
+  height: 55px;
+  border: 2px solid $brand-highlight1;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#newsletter_submit {
+  display: block;
+  margin: 0 auto;
+  padding: 5px 15px;
+  background: #fff;
+  border: 0 none;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 22px;
+}
+
+// Modal
+.modal {
+  text-align: center;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+  .modal-body {
+    height: 500px;
+  }
+}
+
+// Recipe page
+#nav-numeric {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    height: 20px;
+    line-height: 20px;
+    vertical-align: middle;
+    padding: 0 15px;
+    float: left;
+    border-left: 1px solid $brand-highlight1;
+  }
+  li:first-child {
+    border-left: none;
+  }
+  li:last-child {
+    padding: 0 0 0 15px;
+  }
+  a {
+    display: block;
+  }
+}
+
+#recipe-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    height: 20px;
+    line-height: 20px;
+    vertical-align: middle;
+    padding: 0 15px;
+    float: left;
+    border-left: 1px solid $brand-highlight1;
+  }
+  li:first-child {
+    border-left: none;
+  }
+  li:last-child {
+    padding: 0 0 0 15px;
+  }
+  a {
+    display: block;
+    font-weight: 600;
+  }
+}
+
+ul.recipe-ingredients {
+  margin: 0;
+  padding: 0;
+
+  line-height: 34px;
+
+  li {
+    margin-left: 22px;
+  }
+}
+
+ol.recipe-howto {
+  margin: 0;
+  padding: 0;
+
+  line-height: 34px;
+
+  li {
+    margin-left: 28px;
+    margin-bottom: 40px;
+  }
+}
+
+#recipe-advise {
+  bottom: 60px;
+  position: absolute;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    line-height: 70px;
+  }
+
+  a {
+    font-weight: bold;
+  }
+}
+
+span.tip {
+  width: 100px;
+  height: 39px;
+  text-align: center;
+  line-height: 39px !important;
+  vertical-align: middle;
+  font-weight: 300;
+  margin-bottom: 45px;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  display: block;
+  background: $brand-highlight1;
+  color: #fff;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.recipe-img-head {
+  border: 1px solid #cfcfd1;
+  border-bottom: none;
+  img {
+    width: 100%;
+  }
+}
+
+// Margins
+.no-padding {
+  padding: 0;
+}
+
+.margin-70-bottom {
+  margin-bottom: 70px !important;
+}
+
+.margin-75-bottom {
+  margin-bottom: 75px !important;
+}
+
+.margin-43-bottom {
+  margin-bottom: 43px !important;
+}
+
+.margin-20-bottom {
+  margin-bottom: 20px !important;
+}
+
+.margin-17-bottom {
+  margin-bottom: 17px !important;
+}
+
+.margin-24-bottom {
+  margin-bottom: 24px !important;
+}
+
+.margin-50-top {
+  margin-top: 50px !important;
+}
+
+.margin-35-top {
+  margin-top: 35px !important;
+}
+
+.margin-20-top {
+  margin-top: 20px !important;
+}
+
+.margin-30-top {
+  margin-top: 30px !important;
+}
+
+.margin-43-top {
+  margin-top: 43px !important;
+}
+
+.margin-15-top {
+  margin-top: 15px !important;
+}
+
+.margin-80-top {
+  margin-top: 80px !important;
+}
+
+.margin-90-top {
+  margin-top: 90px !important;
+}
+
+.margin-70-top {
+  margin-top: 70px !important;
+}
+
+.margin-100-top {
+  margin-top: 100px !important;
+}
+
+.margin-15-top {
+  margin-top: 13px !important;
+}
+
+.margin-80-top {
+  margin-top: 80px !important;
+}
+
+.margin-100-bottom {
+  margin-bottom: 100px !important;
+}
+
+.margin-90-bottom {
+  margin-bottom: 90px !important;
+}
+
+.margin-120-top {
+  margin-top: 120px !important;
+}
+
+.margin-160-top {
+  margin-top: 160px !important;
+}
+
+.margin-23-top {
+  margin-top: 26px !important;
+}

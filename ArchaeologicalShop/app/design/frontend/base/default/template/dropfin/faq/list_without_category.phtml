@@ -1,0 +1,57 @@
+<?php   
+
+/**
+ * Dropfin
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade 
+ * this extension to newer versions in the future. 
+ *
+ * @category    Dropfin
+ * @package     FAQ
+ * @copyright   Copyright (c) Dropfin (http://www.dropfin.com)
+ */
+
+$faqItems = $this->getFaqItems(); ?>
+<div class="page-title">
+	<h1><?php echo $this->__('FAQ');?></h1>
+</div>
+<?php if(count($faqItems) > 0) : ?>
+	<script type="text/javascript">
+		$.noConflict();
+	</script>
+	<div id="accordion">
+		<?php foreach ($faqItems as $_faqItems) : ?>
+			<h3><?php echo $_faqItems['question'];?></h3>
+			<div>
+				<?php echo $_faqItems['answer'];?>
+			</div>
+		<?php endforeach; ?>
+	</div>
+	<script type="text/javascript">
+		jQuery(function($) {
+			var icons = {
+				header: "ui-icon-circle-plus",
+				activeHeader: "ui-icon-circle-minus"
+			};
+			$( "#accordion" ).accordion({
+				icons: icons,
+				collapsible: true,
+				heightStyle: "content"
+			});
+		});
+	</script>
+<?php else: ?>
+	<div class="no-item-available"><?php echo Mage::helper('faq')->__('No items available');?></div>
+<?php endif; ?>

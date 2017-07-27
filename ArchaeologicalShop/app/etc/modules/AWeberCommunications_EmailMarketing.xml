@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <AWeberCommunications_EmailMarketing>
+            <active>true</active>
+            <codePool>local</codePool>
+        </AWeberCommunications_EmailMarketing>
+    </modules>
+</config>

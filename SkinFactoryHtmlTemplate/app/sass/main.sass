@@ -1,0 +1,843 @@
+@import "bourbon"
+@import "fonts"
+@import "libs"
+@import "vars"
+@import "page-content"
+
+*::-webkit-input-placeholder
+	font-weight: 200
+	font-size: 14px
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	font-weight: 200
+	font-size: 14px
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	font-weight: 200
+	font-size: 14px
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	font-weight: 200
+	font-size: 14px
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+html, body
+	height: 100%
+
+body
+	font-size: 16px
+	min-width: 320px
+	// position: relative
+	line-height: 1.4
+	font-family: $default-font
+	// overflow-x: hidden
+	font-weight: 400
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+a:hover
+	text-decoration: none
+a:focus
+	text-decoration: none
+
+ul
+	margin: 0
+	padding: 0
+	li
+		list-style-type: none
+
+p 
+	margin: 10px 0
+
+h3
+	font-size: 24px
+	font-weight: 500
+
+section
+	padding: 50px 0
+.section-title
+	text-align: center
+	font-size: 30px
+	font-weight: 500
+	margin: 10px 0
+.section-subtitle
+	text-align: center
+	color: #747474
+	font-weight: 300
+
+button
+	background-color: transparent
+
+
+@mixin main-btn($color, $inv-color)
+	border: 2px solid $color
+	text-transform: uppercase
+	border-radius: 0px
+	padding: 12px 0
+	color: $color
+	transition: all 0.2s ease
+	font-size: 14px
+	display: block
+	width: 170px
+	text-align: center
+	&:hover
+		background-color: $color
+		color: $inv-color
+
+.add-btn
+	text-transform: uppercase
+	color: #fff
+	border-radius: 0px
+	padding: 7px 10px
+	font-size: 12px
+	display: inline-block
+	text-align: center
+	background-color: #12ba36
+	margin: 10px auto
+
+	&:hover
+		color: #fff
+
+.wrapper
+	 min-height: calc(100vh - 200px)
+
+
+
+
+/*================ top-line ================*/
+header
+	background-color: #FFF
+.top-line
+	display: flex
+	height: 50px
+	padding: 15px 0
+	justify-content: flex-end
+	align-items: center
+	text-transform: uppercase
+	font-size: 12px
+
+.lang
+	border: none
+	margin-right: 10px
+	span
+		text-transform: uppercase
+		font-size: 12px
+		color: #000
+	button
+		border: none
+
+
+.autorization
+	li 
+		display: inline-block
+		padding: 6px 15px
+		&:not(:last-child)
+			margin-right: 15px
+		&:last-child
+			background-color: $sign-up
+	a 
+		color: #000
+
+/*================ main-nav ================*/
+.logo
+	float: left
+	overflow: hidden
+	img
+		width: 150px
+	
+.top-navigation
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	justify-content: flex-end
+	align-items: center
+
+
+.sf-menu
+	margin-bottom: 0
+	ul
+		box-shadow: none
+		border: 1px solid $border-menu
+		top: 103%
+		width: 15em
+		ul
+			top: -1px
+	li
+		background-color: transparent 
+		white-space: normal
+		a 
+			color: #000
+			font-size: 14px
+			font-weight: 300
+			border: none
+	> li
+		float: none
+		display: inline-block
+		border-bottom: 2px solid transparent
+		&:nth-child(3)
+			> ul 
+				ul
+					left: auto
+					right: 100% 
+		> .sf-with-ul
+			position: relative
+			&::after
+				content: url('../img/arrow-down.png')
+				position: absolute
+				right: 0
+				top: 44%
+				transform: translate(0, -50%)
+				transition: all 0.3s ease
+		&:hover,
+		&.sfHover
+			border-bottom: 2px solid #000
+			background-color: transparent
+			> .sf-with-ul
+				&::after
+					content: url('../img/arrow-up.png')
+		> a
+			text-transform: uppercase
+			font-size: 12px
+			font-weight: 500
+			padding: 1.6em 1.5em
+		ul
+			background-color: #FFF
+			a 
+				padding: 0.85em 2em
+			li
+				background-color: transparent
+				&:hover,
+				&.sfHover
+					background-color: $hover-menu
+			.sf-with-ul
+				position: relative
+				&::after
+					content: url('../img/arrow-right.png')
+					position: absolute
+					top: 50%
+					margin-left: 10px
+					transform: translate(0, -50%)
+					transition: all 0.3s ease
+			
+.cart
+	padding: 0 0 10px 0
+	img
+		width: 27px
+
+//Menu Button
+.toggle-mnu 
+	display: none
+	width: 28px
+	height: 28px
+	margin-bottom: 10px
+	margin-right: 30px
+	span:after, span:before 
+		content: ""
+		position: absolute
+		left: 0
+		top: 9px
+	span:after
+		top: 18px
+	span 
+		position: relative
+		display: block
+	span, span:after, span:before
+		width: 100%
+		height: 2px
+		background-color: #666
+		transition: all 0.3s
+		backface-visibility: hidden
+		border-radius: 2px
+	&.on span 
+		background-color: transparent
+	&.on span:before 
+		transform: rotate(45deg) translate(-1px, 0px)
+	&.on span:after 
+		transform: rotate(-45deg) translate(6px, -7px)
+//end menu button
+
+.mm-title
+	font-size: 18px
+	color: #fff !important
+
+.mm-listview a:hover
+	background-color: rgba(136, 132, 132, 0.31) !important
+
+/*================ banner ================*/
+
+.banner-carousel
+	padding: 0
+	.owl-item
+		h2
+			opacity: 0
+			left: 150px
+			position: relative
+			transition: left 1.5s ease
+			transition-delay: 0.2s
+		p 
+			opacity: 0
+			left: 250px
+			position: relative
+			transition: left 1.5s ease
+			transition-delay: 0.2s
+		.main-btn
+			opacity: 0
+			left: 350px
+			position: relative
+			transition: left 1.5s ease
+			transition-delay: 0.2s
+		&.active
+			h2
+				opacity: 1
+				left: 0
+			p
+				opacity: 1
+				left: 0
+			.main-btn
+				opacity: 1
+				left: 0
+
+.banner
+	background-repeat: no-repeat
+	background-position: top center
+	background-size: cover
+	color: #fff
+	// min-height: 520px
+	padding: 70px 0
+	h2
+		font-size: 72px
+		margin: 0 0 20px 0
+		font-weight: 500
+		line-height: 1.2
+		text-align: left
+	.main-btn
+		margin: 30px 0
+		@include main-btn($white, $black)
+	img
+		display: block
+		max-width: 400px
+		margin: 10px 0
+		width: auto
+	p
+		margin-top: 40px
+		font-weight: 200
+		font-size: 18px
+		line-height: 1.7
+
+
+/*================ categories ================*/
+.categories
+	background-color: $section-color
+	.category-item
+		transition: box-shadow 0.2s ease
+		&:hover
+			box-shadow: 0px 0px 22px 0px rgba(173,171,173,1)
+		img 
+			width: 100%
+	.item-descr
+		background-color: #fff
+		padding: 20px
+		color: #000
+		h3
+			font-weight: 400
+			font-size: 18px
+			color: #000
+		strong
+			text-transform: uppercase
+		p
+			font-weight: 300
+			color: #676767
+
+.cat-wrap
+	margin-bottom: 20px
+
+/*================ clients ================*/
+.clients
+	background-image: url("../img/carousel-bg.png")
+	height: 330px
+	background-repeat: no-repeat
+	background-position: top center
+	background-size: cover
+	background-color: $section-color
+	h3
+		color: #fff
+		font-size: 30px
+
+.clients-carousel
+	margin: 50px 0 0 0
+	.client-item
+		text-align: center
+		height: 50px
+		img
+			display: inline-block
+			width: auto
+			max-width: 100px
+	.owl-stage
+		.owl-item
+			border-left: 3px solid #424f5b
+	.owl-nav
+		i
+			color: #424f5b
+			font-size: 30px
+		.owl-prev,
+		.owl-next
+			position: absolute
+			top: 50%
+			transform: translate(0, -50%)
+		.owl-next
+			right: -30px
+		.owl-prev
+			left: -30px
+
+/*================ testimonials ================*/
+.testimonials
+	background-color: $section-color
+	.owl-dots
+		text-align: center
+		margin-top: 30px
+		.owl-dot
+			width: 10px
+			height: 10px
+			display: inline-block
+			margin-right: 10px
+			border-radius: 50%
+			background-color: $dots-color
+			&.active
+				background-color: $black
+
+.testimonials-border
+	border: 3px solid #000
+	padding: 0 40px 20px
+	position: relative
+	&::after
+		content: ' '
+		position: absolute
+		width: 0
+		height: 0
+		left: auto
+		right: 50.3%
+		bottom: -33px
+		border: 17px solid
+		border-color: $section-color $section-color transparent transparent
+	&::before
+		content: ' '
+		position: absolute
+		width: 0
+		height: 0
+		left: auto
+		right: 50%
+		bottom: -40px
+		border: 20px solid
+		border-color: #000 #000 transparent transparent
+
+.testimonials-item
+	padding: 30px
+	h5
+		font-size: 15px
+		font-weight: 300
+		color: #2a3640
+		position: relative
+		display: inline-block
+		top: -12px
+		background-color: $section-color
+		padding: 0 10px
+	p 
+		font-size: 17px
+		font-family: 'Myriad'
+		color: #6d757b
+		line-height: 2
+	.sign
+		text-align: center
+		font-family: 'Myriad'
+		font-size: 18px
+		margin-top: 50px
+		h6
+			font-weight: bold
+		span
+			color: #a7adb3 
+/*================ instagram ================*/
+.instagram
+	background-color: $section-color
+	.main-btn
+		@include main-btn($black, $white)
+		margin: 35px auto
+
+.insta-wrap
+	background-color: #FFF
+	padding: 20px
+	ul
+		text-align: center
+		li 
+			width: 120px
+			height: 120px
+			display: inline-block
+			padding: 4px
+			// margin: 0 10px 10px 0
+
+/*================ sunbscribe ================*/
+form.subscr
+	text-align: center
+	margin-top: 40px
+	.main-btn
+		@include main-btn($black, $white)
+		display: inline-block
+		vertical-align: top
+	input
+		display: inline-block
+		vertical-align: top
+		height: 47px
+		width: 400px
+		border: 1px solid #bcbcbc
+		margin-right: 10px
+		text-indent: 15px
+		margin-bottom: 20px
+
+
+/*================ footer ================*/
+footer
+	background-color: $dark-color
+	padding: 40px 0 20px 0
+	min-height: 200px
+
+.footer-menu
+	display: flex
+	align-items: top
+	justify-content: space-between
+	a
+		color: #e1e6ea
+		font-weight: 300
+		font-size: 14px
+		&:hover
+			color: #989da0
+
+.footer-categories
+	a
+		color: #fff
+		text-transform: uppercase
+
+
+.social
+	li
+		display: inline-block
+	.fa-circle
+		color: $social-color
+		transition: all 0.2s ease
+	.fa-inverse
+		color: $dark-color
+		transition: all 0.2s ease
+	a 
+		font-size: 17px
+		&:hover
+			.fa-circle
+				color: $dark-color
+			.fa-inverse
+				color: $social-color
+
+.own
+	text-align: center
+	margin-top: 50px
+	span
+		color: #a1aab1
+		font-size: 14px
+
+
+/*================ category-masonry ================*/
+.page
+	.wrapper
+		background-color: $section-color
+
+.category-product
+	background-color: #FFF
+	text-align: center
+	margin-bottom: 30px
+	position: relative
+	h3
+		font-weight: 600
+		margin-bottom: 15px
+	.product-descr
+		padding: 15px 0
+		background-color: #fff
+		transition: height 0.2s ease
+		h3
+			font-size: 18px
+			font-weight: 400
+	.main-btn
+		@include main-btn($black, $white)
+		display: inline-block
+		width: auto
+		padding: 5px 10px
+		margin: 20px 0 10px
+		font-size: 12px
+		display: none
+	.product-img
+		background-color: #ededed
+		position: relative
+		overflow: hidden
+		height: 230px
+		img
+			display: block
+			width: 100%
+	.first-img
+		position: relative
+		z-index: 2
+		opacity: 1
+		transition: opacity 0.3s ease
+	.second-img
+		position: absolute
+		z-index: 1
+		top: 0
+		right: 0
+		left: 0
+		bottom: 0
+	&:hover
+		position: relative
+		z-index: 20
+		.first-img
+			opacity: 0
+		.main-btn
+			display: inline-block
+
+
+/*================ about-page ================*/
+.about-page
+	.banner
+		height: 630px
+
+.page-title
+	text-align: left
+	border-bottom: 1px solid #d2d2d2
+	padding-bottom: 10px
+	font-size: 24px
+	color: #000
+	font-weight: 500
+
+.page-subtitle
+	text-transform: uppercase
+	color: #fff
+	padding: 10px 10px
+
+/*================ faq ================*/
+.faq-page
+	.faq-img
+		img
+			margin: 15px
+			width: 250px
+	.acc_ctrl
+		.fa
+			display: block
+
+/*================ accordion ================*/
+.acc 
+	overflow: hidden
+	padding: 0
+
+.acc
+	> li 
+		margin-bottom: 3px
+		list-style-type: none
+		padding: 0
+		border-top: 1px solid #bcbcbc
+		&:last-child
+			border-bottom:  1px solid #bcbcbc
+
+.acc_ctrl 
+	border: none
+	cursor: pointer
+	outline: none
+	position: relative
+	text-align: left
+	width: 100%
+	padding: 0
+	display: flex
+	justify-content: space-between
+	align-items: center
+	h2
+		font-weight: 300
+		font-size: 16px
+		margin: 0 20px 0 0
+		padding: 10px 0
+		color: #000
+		transition: font-weight 0.2s ease
+		.fa
+			float: right
+			font-weight: 300
+			margin-left: 30px
+
+	&.active
+		h2
+			font-weight: 400
+
+
+.acc_ctrl.active h2, .acc_ctrl:focus h2 
+	position: relative
+
+.acc_panel 
+	display: none
+	overflow: hidden
+
+/*================ contacts-form ================*/
+
+.contacts-form
+	input
+		width: 100%
+		height: 45px
+		margin: 20px 0
+		display: block
+		text-indent: 10px
+	textarea
+		width: 100%
+		height: 200px
+		resize: none
+		text-indent: 10px
+		padding-top: 15px
+	button
+		@include main-btn($black, $white)
+	p 
+		color: #696969
+
+
+.contacts-info
+	h4
+		text-transform: uppercase
+		margin-bottom: 10px
+	ul
+		margin-bottom: 40px
+	li
+		font-size: 14px
+		font-weight: 300
+		color: #000
+		a 
+			margin-left: 10px
+			color: #000
+
+	.social
+		.fa-circle
+			color: $social-light
+			transition: all 0.2s ease
+		.fa-inverse
+			color: $social-light2
+		a 
+			margin: 0
+			&:hover
+				.fa-circle
+					color: $social-light2
+					transition: all 0.2s ease
+				.fa-inverse
+					color: $social-light
+
+/*================ distributor ================*/
+
+.distributor
+	text-align: center
+	background-color: $distr-color
+	color: #fff
+	padding: 20px 0
+	margin: 50px 0
+	h2
+		text-transform: uppercase
+		margin: 0 0 10px 0
+		color: #fff
+		font-size: 30px
+		font-weight: 400
+		span
+			text-transform: lowercase
+			font-weight: 400
+	a
+		color: #fff
+		font-weight: 300
+	a[href^="mailto"]
+		text-decoration: underline
+
+
+/*================ stocklist ================*/
+
+.stocklist
+	.country-title
+		text-transform: uppercase
+		font-size: 14px
+	h3 
+		margin-bottom: 20px
+	.acc_ctrl
+		display: flex
+		justify-content: space-between
+		align-items: center
+		h2
+			padding: 20px 0
+	.acc_panel
+		ul 
+			display: inline-block
+			vertical-align: top
+			margin-right: 40px
+			margin-bottom: 20px
+		li 
+			font-size: 14px
+			margin: 10px 0
+			font-weight: 300
+	.acc
+		> li
+			&:first-child
+				border-top: none
+			border-top: 1px solid #000
+			&:last-child
+				border-bottom:  1px solid #000
+
+.country-item
+	border-top: 1px solid #000
+	img
+		margin-right: 10px
+	.acc
+		> li
+			&:last-child
+				border-bottom: none
+
+.country-stocks
+	.country-item
+		&:last-child
+			.acc
+				> li:last-child
+					border-bottom:  1px solid #000
+
+/*================ BLOG ================*/
+
+.last-post
+	img
+		width: 100%
+	p 
+		font-weight: 300
+	a 
+		font-size: 14px
+
+.recent-post
+	.post-item
+		margin: 30px 0
+		img
+			float: left
+			margin-right: 25px
+	.post-text
+		overflow: hidden
+
+.blog-aside
+	padding: 15px
+	background-color: #fff
+
+				
+@import "media" // Всегда в конце

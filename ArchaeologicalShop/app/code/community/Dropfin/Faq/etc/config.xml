@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Dropfin
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade 
+ * this extension to newer versions in the future. 
+ *
+ * @category    Dropfin
+ * @package     FAQ
+ * @copyright   Copyright (c) Dropfin (http://www.dropfin.com)
+ */
+-->
+<config>
+    <modules>
+        <Dropfin_Faq>
+            <version>1.0.1</version>
+        </Dropfin_Faq>
+    </modules>
+    <default>
+        <dropfin_faq>
+            <general module="faq">
+                <enable>1</enable>
+                <category_option>1</category_option>
+            </general>
+        </dropfin_faq>
+    </default>
+    <frontend>
+        <routers>
+            <faq>
+                <use>standard</use>
+                <args>
+                    <module>Dropfin_Faq</module>
+                    <frontName>faq</frontName>
+                </args>
+            </faq>
+        </routers>      
+        <layout>
+            <updates>
+                <faq>
+                    <file>dropfin/faq.xml</file>
+                </faq>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <translations>
+                    <files>
+                        <default>Dropfin_Faq.csv</default>
+                    </files>
+                </translations>
+            </modules>
+        </translate>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Dropfin_Faq before="Mage_Adminhtml">Dropfin_Faq_Adminhtml</Dropfin_Faq>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <faq>
+                    <file>dropfin/faq.xml</file>
+                </faq>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <translations>
+                    <files>
+                        <default>Dropfin_Faq.csv</default>
+                    </files>
+                </translations>
+            </modules>
+        </translate>
+    </adminhtml> 
+    <global>
+        <models>
+            <faq>
+                <class>Dropfin_Faq_Model</class>
+                <resourceModel>faq_mysql4</resourceModel>
+            </faq>
+            <faq_mysql4>
+                <class>Dropfin_Faq_Model_Mysql4</class>
+                <entities>
+                    <faq>
+                        <table>dropfin_faq_question</table>
+                    </faq>
+                    <faq_store>
+                        <table>dropfin_faq_question_store</table>
+                    </faq_store>
+                    <category>
+                        <table>dropfin_faq_category</table>
+                    </category>
+                    <category_store>
+                        <table>dropfin_faq_category_store</table>
+                    </category_store>
+                    <category_item>
+                        <table>dropfin_faq_category_item</table>
+                    </category_item>
+                </entities>
+            </faq_mysql4>
+        </models>
+        <resources>
+            <faq_setup>
+                <setup>
+                    <module>Dropfin_Faq</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </faq_setup>
+            <faq_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </faq_write>
+            <faq_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </faq_read>
+        </resources>
+        <blocks>
+            <faq>
+                <class>Dropfin_Faq_Block</class>
+            </faq>
+        </blocks>
+        <helpers>
+            <faq>
+                <class>Dropfin_Faq_Helper</class>
+            </faq>
+        </helpers>
+    </global>
+</config>

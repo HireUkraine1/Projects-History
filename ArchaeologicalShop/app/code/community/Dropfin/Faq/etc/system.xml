@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Dropfin
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade 
+ * this extension to newer versions in the future. 
+ *
+ * @category    Dropfin
+ * @package     FAQ
+ * @copyright   Copyright (c) Dropfin (http://www.dropfin.com)
+ */
+-->
+<config>
+    <tabs>
+        <dropfin translate="label">
+            <label>Dropfin</label>
+            <sort_order>150</sort_order>
+        </dropfin>
+    </tabs>
+    <sections>
+        <dropfin_faq module="faq" translate="label">
+            <label>FAQ</label>
+            <tab>dropfin</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>50</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+
+                <general module="faq" translate="label">
+                    <label>Faq Configurations</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enable translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+                        <category_option translate="label">
+                            <label>Display Category in Frontend</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enable>1</enable>
+                            </depends>
+                        </category_option>
+                    </fields>
+                </general>
+            </groups>
+        </dropfin_faq>
+    </sections>
+</config>

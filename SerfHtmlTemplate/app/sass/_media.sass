@@ -1,0 +1,541 @@
+@import "bourbon"
+@import "vars"
+
+
+/*==========  Desktop First  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px)
+	/**/
+	.main-logo
+		top: 7px
+
+	.main-nav
+		width: 85%
+		line-height: 1
+		padding: 0
+		display: flex
+		flex-direction: column
+		justify-content: center
+		min-height: 90px
+	.navigation
+		float: none
+		margin-top: 15px
+		ul:first-child
+			margin-right: 0
+		ul:last-child
+			float: right
+
+
+	.main-category
+		float: none
+		margin: 10px 0
+		line-height: 1.5
+
+	nav
+		overflow: hidden
+		height: auto
+
+
+	.right-banner
+		display: none
+	.left-banner
+		width: 100%
+		padding-top: 30px
+		height: auto
+		padding-bottom: 30px
+		&::after
+			content: ""
+		.left-text
+			margin: 0px auto
+			float: none
+
+	.page-category 
+		.category-menu 
+			ul 
+				a
+					font-size: 14px
+
+		.course-wrapper
+			text-align: left
+
+	.masonry-items
+		text-align: center
+
+	.courses-slider
+		.slick-slide
+			width: 265px
+			margin: 0px 15px
+
+	.form-content 
+		.price
+			float: none
+	.form-title
+		h3 
+			margin-bottom: 5px
+
+	.category-masonry 
+		.drop-menu
+			margin-right: 10px
+		.filterForm
+			justify-content: flex-start
+
+
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px)
+	/**/
+	.navigation 
+		ul:first-child 
+			li:not(:last-child)
+				margin-right: 12px
+
+	.contacts-info
+		float: none
+
+	.page-category 
+		.category-banner
+			background-position: 60% 50%
+		.no-bg 
+			h1
+				font-size: 27px
+			p 
+				font-size: 17px
+		.slide-mobile-nav
+			display: block
+			li 
+				text-align: center
+				display: inline-block
+				line-height: 80px
+				a 
+					font-size: 16px
+					color: #fff
+
+	.membership-aside
+		margin-bottom: 20px
+		li
+			display: block
+			margin-bottom: 7px
+
+
+	.category-menu
+		height: 80px
+
+	.categry-nav
+		display: none
+
+	.slide-mobile-nav
+		.slick-slide
+			display: inline-block
+			margin: 0 16px
+	
+	.category-aside
+		text-align: center
+		.advertise
+			width: 150px
+			display: inline-block
+			margin: 0px 20px
+			&:not(:last-child)
+				margin-bottom: 0
+
+	.instructor-course
+		.course-wrapper
+			width: 225px
+			margin-right: 9px
+
+	
+	.chekbox-row 
+		.form-group
+			margin-bottom: 20px
+
+
+	.category-masonry 
+		.drop-menu	
+			display: inline-block
+			margin-bottom: 10px
+			margin-right: 3px
+			width: 48%
+			&:nth-child(2n)
+				width: 48%
+		.filterForm
+			display: block
+			text-align: center
+		.search-btn
+			display: block
+			text-align: center
+
+	footer
+		height: auto
+
+
+
+	
+/* Small Devices, Tablets */
+@media only screen and (max-width : 767px)
+	/**/
+	.main-nav
+		display: block
+		padding: 30px 55px 0 20px
+
+
+	.navigation
+		float: right
+		margin: 0
+		padding-top: 6px
+		.sign-in	
+			display: none
+		.menu-item
+	 		li:nth-child(n+3)
+	  			display: none
+
+	.mobile-mnu
+		position: absolute
+		width: 100%
+		background-color: #FFF
+		left: 0
+		top: 90px
+		padding-bottom: 20px
+		z-index: 20
+		transition: top 0.4s ease
+		ul
+			display: block
+			&:last-child
+				float: none
+			li 
+				display: block
+				text-align: center
+				margin: 0 auto
+				padding: 20px 0
+		.focus-btn
+			padding: 7px 8px
+		.menu-item
+			li:nth-child(-n+2)
+				display: none
+
+	.hamburger-menu
+		display: block
+
+	.main-category
+		margin: 0
+		float: left
+
+	.bt
+		width: 80px
+
+	.img-holder
+		display: none
+
+	.category-item
+		display: table
+		width: 100%
+	.category-title
+		background-position: 50% 15%
+		display: table-cell
+		height: 150px
+		vertical-align: middle
+		h2
+			font-size: 14px
+			line-height: 1
+			padding-top: 40px
+
+	footer
+		display: table
+		width: 100%
+
+	.footer-menu
+		ul
+			&:nth-child(n+2)
+				display: none
+
+	.membership-form
+		.form-group
+			width: 100%
+			float: none
+
+	
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 690px)
+	/**/
+	.main-category,
+	.navigation
+		float: none
+
+	.navigation
+		margin-bottom: 15px
+		img 
+			display: none
+
+	.main-nav
+		width: 75%
+		padding-top: 10px 
+		padding-bottom: 10px 
+
+	.left-text
+		width: 100%
+		padding: 0 15px
+
+	.select-group
+		width: 100%
+		float: none
+	
+	.button-border
+		width: 60%
+
+	.section-bg
+		h2 
+			font-size: 28px
+
+	.category-aside 
+		.advertise
+			display: block
+			margin: 0 auto 
+			&:not(:last-child)
+				margin-bottom: 10px
+
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 600px)
+	/**/
+
+	.left-banner
+		padding-top: 0
+
+	section
+		padding: 30px 0
+
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 500px)
+	/**/
+	.instructor-course
+		text-align: center
+		h4
+			font-size: 18px
+			text-align: left
+		.course-wrapper
+			width: 250px
+			margin-right: 9px
+
+	.category-masonry 
+		.drop-menu	
+			width: 100% !important
+		select
+			margin-bottom: 10px
+		.filters-select
+			margin-bottom: 20px
+			text-align: center
+	
+	.page-category 
+		.category-banner
+			padding-top: 30px
+
+	.instructors-wrapper
+		float: none
+		margin: 0 auto 20px
+		width: 100%
+		img
+			width: 100%
+
+	iframe
+		width: 100%
+		height: auto
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px)
+	/**/
+	.static-content 
+		ul 
+			li
+				font-size: 14px
+
+	p 
+		font-size: 14px !important
+	h1
+		font-size: 22px !important
+	h3
+		font-size: 18px !important
+
+	.main-logo
+		width: 65px
+		top: 14px
+
+	.main-nav
+		width: 77%
+		padding-left: 0px
+
+	.main-category
+		a
+			font-size: 12px
+		.bt
+			width: 66px
+
+	.drop-menu
+		width: 100%
+
+	.left-text
+		button
+			width: 100%
+		p 
+			margin-bottom: 10px
+			font-size: 14px
+		h2
+			font-size: 18px
+
+	.category-wrap
+		width: 100%
+		margin-bottom: 10px
+
+	.category-title
+		display: block
+		height: auto
+		background-position: 4% center
+		h2 
+			padding: 25px 0
+			font-size: 16px
+	
+
+
+	.asi-section,
+	.category-instructor
+		margin-top: 30px
+
+	.products-item
+		width: 100%
+		float: none
+
+	.footer-menu
+		float: none
+		padding: 15px 0 0
+		ul
+			margin-right: 0
+			li 	
+				display: inline-block
+				margin-right: 10px
+
+	.page-category 
+		.category-banner::after
+			background-size: 100px 100px
+	
+	.slide-mobile-nav
+		.slick-slide
+			display: inline-block
+			margin: 0 16px
+
+	.step 
+		h4
+			font-size: 14px
+
+	.form-content 
+		.price 
+			padding: 8px 20px
+			span
+				font-size: 16px
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 380px)
+	/**/
+	body
+		padding-top: 111px
+
+	.main-nav
+		padding-right: 0
+		width: 73%
+
+	.navigation
+		line-height: 1.5
+		.menu-item
+			li
+				width: 50px
+				text-align: left
+	
+	.hamburger-menu
+		top: -38px
+		width: 30px
+
+	.main-category
+		margin-top: 10px
+	
+	.mobile-mnu
+		top: 111px
+
+	
+	.course-wrapper
+		padding: 0 5px 
+
+	.button-border
+		width: 80%
+
+	.footer-logo 
+		margin-right: 15px
+		padding-top: 37px
+		img
+		 width: 70px
+
+
+	.main-logo
+		top: 25px
+
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 360px)
+	/**/
+	.slide-mobile-nav 
+		.slick-slide
+			margin: 0 32px
+
+	.courses-slider
+		.slick-slide
+			width: 265px
+			margin: 0px 5px
+
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px)
+	/**/
+	.slide-mobile-nav 
+		.slick-slide
+			margin: 0 22px
+
+
+
+
+
+
+/*==========  Mobile First  ==========*/
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px)
+	/**/
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px)
+	/**/
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px)
+	/**/
+	.mobile-mnu
+		display: none!important
+
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px)
+	/**/
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px)
+	/**/
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1350px)
+	/**/
+
+

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Svit_ManeyGram>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Svit_ManeyGram>
+	</modules>
+</config>

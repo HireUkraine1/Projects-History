@@ -1,0 +1,19 @@
+.datarow {
+  padding-top: 5px;
+  border-bottom: dashed #ccc 1px;
+}
+
+.datarow .text {
+  padding: 10px 20px;
+  font-size: 12px;
+}
+
+.datarow textarea {
+  font-size: 12px;
+  margin-bottom: 7px;
+}
+
+.menu-divider {
+  margin: 5px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .15);
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Svit_Menunew>
+            <active>true</active>
+            <codePool>local</codePool>
+            
+        </Svit_Menunew>
+    </modules>
+</config>

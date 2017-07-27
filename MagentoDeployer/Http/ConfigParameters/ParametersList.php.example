@@ -1,0 +1,72 @@
+<?php
+
+namespace App\Http\ConfigParameters;
+
+Class ParametersList {
+
+    
+     
+    /**
+     *  PROXMOX PART OF CONFIG START
+     */
+    protected $hostname = '_IP_';
+    protected $username ='_USER_';
+    protected $realm = 'pam';
+    protected $password = '_PASSWORD_';
+    protected $port = _PORT_;
+
+    protected $proxmox_node = '_NODE_NAME_';
+    protected $proxmox_storage = '_STORAGE_';
+    protected $proxmox_continer = 'qcow2';
+    protected $proxmox_clone_isfull = False;
+    protected $bridge = '_BRIDGE_';
+    /**
+     *  PROXMOX PART OF CONFIG FINISH
+     */
+
+    /**
+     *  GIT PART OF CONFIG FINISH
+     */
+    protected $gittoken  ='_GITTOKEN_';
+    protected $gitmethod  = 'token';
+    protected $gituser = '_GITUSER_';
+    protected $gitreponame = '_GITREPONAME_';
+    protected $def_branch = '_DEFBRANCH_';
+    /**
+     *  GIT PART OF CONFIG FINISH
+     */
+
+    /**
+     *  COMMON PART OF CONFIG FINISH
+     */
+    protected $sleep = 5;
+    protected $timeout = 5;
+    /**
+     *  COMMON PART OF CONFIG FINISH
+     */
+
+    /**
+     *  INSTANCE PART OF CONFIG START
+     */
+    protected $mac = 16; //Pool of MAC addresses starts from this MAC
+    protected $ip = 150;   //Pool of IP addresses starts from this IP
+    protected $total = 20; //Total number of MAC and IP addresses
+    protected $mac_ip='36:64:34:30:66:';
+    protected $host_ip='_NETWORK_';
+    protected $finish_creating_instance = 'Waiting for git clone operation to complete';
+    /**
+     *  INSTANCE PART OF CONFIG FINISH
+     */
+
+    public function __construrt(){
+       $f = \Config::get('graham-campbell/github::github.token');
+       dd($f);
+    }
+    
+    
+    public function __get($name)
+    {
+        return $this->$name;
+    }
+
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Svit_Menunew>
+            <version>0.0.1</version>
+        </Svit_Menunew>
+    </modules>
+    <global>
+            <helpers>
+                <menunew>
+                        <class>Svit_Menunew_Helper</class>
+                </menunew>
+                <megamenu>
+                    <rewrite>
+                        <data>Svit_Menunew_Helper_Data</data>
+                    </rewrite>
+                </megamenu>
+            </helpers>
+    </global>
+</config>
+
+
+

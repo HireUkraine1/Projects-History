@@ -1,0 +1,52 @@
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl('web').'/js/cjscolor/procolor.compressed.js';?>"></script>
+
+
+<ul id="grid_order_status_color">
+
+<?php $statuses = Mage::getSingleton('sales/order_config')->getStatuses();
+$defaultColours = Mage::getStoreConfig('orderview/general/order_status_color');
+$defaultColoursExp = explode(",",$defaultColours);
+$defaultColoursExp = array_filter($defaultColoursExp);
+
+foreach($defaultColoursExp as $colorStr)
+{
+	$colorStrArr = explode("|",$colorStr);
+	$code = trim($colorStrArr[0]);
+	$colorStrArrMerge[$code] = trim($colorStrArr[1]);
+}
+
+		$i = 1;
+		$statusCode = ''; $defaultColor = '';
+		foreach($statuses as $code => $value)
+		{
+			$statusCode[] = $code;
+			if(isset($colorStrArrMerge[$code]) && $colorStrArrMerge[$code] != "")
+			{
+				$defaultColor = $colorStrArrMerge[$code];
+			}else{
+			$defaultColor = 'ffffff';
+			}
+			?>
+			
+			 <input id="<?php echo $code.'___'.$i; ?>" value="<?php echo $defaultColor;?>" style="width:1px;border:0px;visibility:hidden;float:left" type="label" />
+			
+			<li style="background-color:#<?php echo $defaultColor;?>" id="<?php echo $code.'___'.$i.'_1'; ?>">
+			<?php echo $value;?>
+			
+		 
+ <div class="setcolor_white" onclick="ProColor.prototype.clearColor(this,'<?php echo $code ;?>','<?php echo $code."___".$i."_1"; ?>')">X</div> 
+			</li>
+				
+		<input type="hidden" name="<?php echo $code ;?>" id="<?php echo $code ;?>" value="<?php echo $defaultColor;?>" />
+		<script>   ProColor.prototype.attachButton( '<?php echo $code.'___'.$i;?>' ,{ imgPath:'http://127.0.0.1/mage1.9test/js//cjscolor/img/procolor_win_', showInField: true }); </script>
+		<?php
+		$i++ ; 
+		} 
+?>
+
+</ul>
+
+<input type="hidden" name="status_code_arr" id="status_code_arr" value="<?php echo implode(",",$statusCode); ?>" />
+
+<input type="hidden" id="ordermanager_grid_order_status_color"
+        name="groups[general][fields][order_status_color][value]" value="<?php echo $defaultColours; ?>" />

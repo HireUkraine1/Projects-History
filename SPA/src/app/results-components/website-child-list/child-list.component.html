@@ -1,0 +1,44 @@
+<div class="website-tree-map" *ngIf="user">
+    <div class="col-xs-12">
+        <ul class="website-tree-list">
+            <li class="parent-link"><span class="goParent"><i class="fa fa-arrow-circle-o-left" aria-hidden="true"
+                                                              [routerLink]="['/results', user.id]"></i></span>{{user.page}}
+            </li>
+            <li *ngFor="let userr of user.data">
+                <div class="list-header">
+                    <!--<md-checkbox> {{ userr.first_name }} <a class="page_url" href="{{userr.avatar}}">{{userr.avatar}}</a></md-checkbox>-->
+                    <div class="ui-g-12">
+                        <p-checkbox name="group2" value="{{ userr.first_name }} " label="{{ userr.first_name }}"
+                                    [(ngModel)]="selectedLinks2"></p-checkbox>
+                        <a class="page_url" href="{{userr.avatar}}">{{userr.avatar}}</a>
+                    </div>
+                    <div class="website-tree-child">
+                        <span>Level {{userr.id}} </span>
+                        <span class="goChild"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"
+                                                 (click)="reloadRoot(userr.id)"
+                                                 [routerLink]="['/results', userr.id]"></i></span>
+                    </div>
+                </div>
+                <p-accordion [multiple]="true" class="list-accordion">
+                    <p-accordionTab>
+                        <p-header>
+                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                        </p-header>
+                        <h5>URl</h5>
+                        <a href="#">{{userr.avatar}} </a>
+                        <h5>Description</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aliquam magnam odio
+                            exercitationem earum
+                            illo numquam consequuntur, cumque, fugiat eaque laboriosam impedit autem error dicta
+                            assumenda tempora quisquam
+                            quo iste.</p>
+                        <h5>Info</h5>
+                    </p-accordionTab>
+                </p-accordion>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--remove it-->
+Selected : <span *ngFor="let city of selectedLinks2" style="margin-right:10px">{{city}}</span>

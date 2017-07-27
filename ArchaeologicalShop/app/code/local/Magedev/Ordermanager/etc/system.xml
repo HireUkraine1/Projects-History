@@ -1,0 +1,569 @@
+<?xml version="1.0"?>
+ 
+<config>
+
+
+    <tabs>
+        <aheadgroups_all translate="label" module="ordermanager">
+            <label>Ahead Groups</label>
+            <sort_order>100</sort_order>
+        </aheadgroups_all>
+    </tabs>
+
+
+    <sections>
+		<orderview module="ordermanager" label="label">
+            <class>separator-top</class>
+            <label>Advance Order Grid</label>
+            <tab>aheadgroups_all</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>2</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+			
+		<!--	<license translate="label">
+                    <label>License Manager</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <lserial translate="label">
+                            <label>License Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+								<span class="notice">You can get it from the site you purchased under My Account section.</span>]]>
+							</comment>
+                        </lserial>
+					</fields>
+				</license>-->
+				
+                <general translate="label">
+                    <label>Grid Manager General Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Order Grid</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>01</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+ 						
+						<hide_product_view translate="label">
+                            <label>Disable Product (Thumbnails)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>02</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">It will disbale Product list on Grid and will show only icons to show.</span>]]></comment>
+                        </hide_product_view>
+						
+						<product_thumb_size translate="label">
+                            <label>Product Thumbnail Size</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>03</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">Product Thumbnails size on Order Grid, default is 50px.</span>]]></comment>
+                        </product_thumb_size>
+						
+						<product_count translate="label">
+                            <label>Product To show </label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>04</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">How many Product you want to show on Order Grid, default is 3.</span>]]></comment>
+                        </product_count>
+										
+						<order_grid_col translate="label">
+                            <label>Order Grid Columns</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>ordermanager/system_config_source_orders_columnmanager</source_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<can_be_empty>0</can_be_empty>
+							<comment><![CDATA[
+							<span class="notice">Here you can select the column you want to show on order grid.</span>]]></comment>
+                        </order_grid_col>
+						
+
+		 
+						<order_status_color translate="label">
+                            <label>Order Status Color</label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>ordermanager/system_config_ordercolor</frontend_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<can_be_empty>0</can_be_empty>
+							<comment><![CDATA[
+							<span class="notice">Set order color as per order status.</span>]]></comment>
+                        </order_status_color>
+						
+						<fixed_header translate="label">
+                            <label>Fixed Header</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">Set fixed header for Grid.</span>]]></comment>
+                        </fixed_header>
+
+						<product_name_limit translate="label">
+                            <label>Product Name Length</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">Limit Product Name Length on Order Grid, default is 0 to 50px(Please enter Eg: 30).</span>]]></comment>
+                        </product_name_limit>
+ 
+ 						<custom_option_limit translate="label">
+                            <label>Custom Option Length</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">Limit Custom Option Value Length on Order Grid, default is 0 to 50px.</span>]]></comment>
+                        </custom_option_limit>
+						
+						<comments_limit translate="label">
+                            <label>Comments Limit</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice"># order comments you want to show on order grid(default 1).</span>]]></comment>
+                        </comments_limit>
+
+						<notify_customer_oninvoice translate="label">
+                            <label>Send Invoice Email</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">Notify(email) Customer on mass Invoice Action.</span>]]></comment>
+						</notify_customer_oninvoice>
+						
+						<notify_customer_onship translate="label">
+                            <label>Send Shipping Email</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">Notify(email) Customer on mass Shipping.</span>]]></comment>
+                        </notify_customer_onship>
+ 						
+						
+                    </fields>
+                </general>
+				
+				<order_arch_mng translate="label">
+                    <label>Order Archieve Manager</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+
+						<enable_archieve translate="label">
+                            <label>Enable Archieve Orders</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable_archieve>
+						
+						<archive_orders_on_status translate="label">
+                            <label>Archive Order If</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>ordermanager/system_config_source_orders_status</source_model>                                                        
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+							 <comment><![CDATA[Archieve Orders on selected Order Status]]></comment>
+                        </archive_orders_on_status>
+                        
+						 <time translate="label">
+                            <label>Start Time</label>
+                            <frontend_type>time</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </time> 
+						
+                        <frequency translate="label">
+                            <label>Frequency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_cron_frequency</source_model>
+							<backend_model>ordermanager/system_config_backend_ordermanager_cron</backend_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </frequency>
+                        
+                    </fields>
+                </order_arch_mng>
+				
+				<broadcast_mng translate="label">
+                    <label>Broadcast Message Manager</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>4</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <allow_broadcast translate="label">
+                            <label>Allow Broadcast Message</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allow_broadcast>
+						
+						<bradmsg translate="label comment">
+                            <label>Broadcast Message</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>7</sort_order>
+							<source_model>ordermanager/system_config_source_orders_status</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Set Order status allowed to broadcast messages.]]></comment>
+                        </bradmsg>
+						
+                    </fields>
+                </broadcast_mng>
+				
+				<mass_act_mng translate="label">
+                    <label>Order Mass Action Manager</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						 <add_mass_invoce translate="label">
+                            <label>Invoice Bulk Order(s)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>18</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">Add Mass Invoice Option to Dropdown</span>]]></comment>
+                        </add_mass_invoce>
+						
+						 <add_mass_ship translate="label">
+                            <label>Ship Bulk Order(s)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>19</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">Add Mass Ship Option to Dropdown</span>]]></comment>
+                        </add_mass_ship>
+						
+						<add_mass_ico translate="label">
+                            <label>Capture(Offline) Bulk Order(s)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">Add Mass Invoice Capture(Offline) Option to Dropdown</span>]]></comment>
+                        </add_mass_ico>
+						
+						<add_mass_icon translate="label">
+                            <label>Capture(Online) Bulk Order(s)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">Add Mass Capture(Online) Option to Dropdown</span>]]></comment>
+                        </add_mass_icon>
+						
+						<add_mass_icoffship translate="label">
+                            <label>Capture+Ship Bulk Order(s)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">Add Mass Capture(Offline)+Ship Option to Dropdown</span>]]></comment>
+                        </add_mass_icoffship>
+						
+						<add_mass_iconship translate="label">
+                            <label>Capture(Online)+Ship Bulk Order(s)</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">Add Mass Capture(Online)+Ship Option to Dropdown</span>]]></comment>
+                        </add_mass_iconship>
+						
+						<add_mass_archieve translate="label">
+                            <label>Archive Orders</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">Move Order to Archieve Option( to Dropdown )</span>]]></comment>
+                        </add_mass_archieve>
+						
+						<add_mass_active translate="label">
+                            <label>Active Orders</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment><![CDATA[
+							<span class="notice">Move orders Archieve to Active Option( to Dropdown )</span>]]></comment>
+                        </add_mass_active>
+                    </fields>
+                </mass_act_mng>
+				
+				<deletemng translate="label">
+                    <label>Order Delete Manager</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>6</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <allow_delete translate="label">
+                            <label>Allow Order To Delete</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allow_delete>
+						<del_ord_if translate="label">
+                            <label>Delete Order If</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>ordermanager/system_config_source_orders_status</source_model>                                                        
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment><![CDATA[Delete Orders on selected Order Status, if not selected, will delete with any status]]></comment>
+                        </del_ord_if>
+                    </fields>
+                </deletemng>
+				
+				<delete_inv_mng translate="label">
+                    <label>Invoice Delete Manager</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>7</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <delete_inv translate="label">
+                            <label>Allow Delete Invoice</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </delete_inv>
+						<del_inv_if translate="label">
+                            <label>Delete Invoice If</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>ordermanager/system_config_source_orders_status</source_model>                                                        
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment><![CDATA[Delete Invoice on selected Order Status]]></comment>
+                        </del_inv_if>
+                    </fields>
+                </delete_inv_mng>
+				
+				<delete_ship_mng translate="label">
+                    <label>Shipping Delete Manager</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>8</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <delete_ship translate="label">
+                            <label>Allow Delete Ship</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </delete_ship>
+						<del_ship_if translate="label">
+                            <label>Delete Ship If</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>ordermanager/system_config_source_orders_status</source_model>                                                        
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment><![CDATA[Delete Invoice on selected Order Status]]></comment>
+                        </del_ship_if>
+                    </fields>
+                </delete_ship_mng>
+				
+				<delete_credit_mng translate="label">
+                    <label>Credit Memo Delete Manager</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>8</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <delete_credit translate="label">
+                            <label>Allow Delete Credit Memo</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </delete_credit>
+						<delete_credit_if translate="label">
+                            <label>Delete Credit Memo If</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>ordermanager/system_config_source_orders_status</source_model>                                                        
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment><![CDATA[Delete Credit Memo on selected Order Status]]></comment>
+                        </delete_credit_if>
+                    </fields>
+                </delete_credit_mng>
+				
+				<delete_in_ship_cr_mng translate="label">
+                    <label>Invoice,Ship,Credit Memo Delete Manager</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>9</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <delete_in_ship_cr translate="label">
+                            <label>Allow Delete Invoice,Shipping,Credit Memo</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </delete_in_ship_cr>
+						<del_in_ship_cr_if translate="label">
+                            <label>Delete Invoice,Shipping,Credit Memo If</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>ordermanager/system_config_source_orders_status</source_model>                                                        
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+							<comment><![CDATA[Delete Invoice on selected Order Status]]></comment>
+                        </del_in_ship_cr_if>
+                    </fields>
+                </delete_in_ship_cr_mng>
+				
+	<!--			
+				<opermission translate="label">
+                    <label>Add N Number Invoice Status</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields> 
+						<edit_order_invoice_status translate="comment">
+                            <label></label>
+                            <frontend_model>Magedev_Ordermanager_Block_Invoicestatus</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <comment><![CDATA[
+							<span class="notice">Use this button to add N number of invoices.</span>]]>
+							</comment>
+                        </edit_order_invoice_status>
+                    </fields>
+                </opermission>-->
+				
+            </groups>
+        </orderview>
+		
+    </sections>
+</config>

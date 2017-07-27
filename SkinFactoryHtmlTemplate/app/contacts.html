@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Title</title>
+	<meta name="description" content="">
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link rel="shortcut icon" href="img/favicon/MyFavicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="img/favicon/MyFavicon/apple-touch-icon57x57.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/MyFavicon/apple-touch-icon72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="img/favicon/MyFavicon/apple-touch-icon114x114.png">
+
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+	<link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body class="page">
+	<div class="wrapper">
+		<header>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="top-line">
+						  <select name="lang" class="lang">
+							  <option value="" data-content="<img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAPCAIAAACeBPOyAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NEY0NDY3NzlGRTVBMTFFNkFERUVCN0YyMkYxNTgwMzAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NEY0NDY3N0FGRTVBMTFFNkFERUVCN0YyMkYxNTgwMzAiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo0RjQ0Njc3N0ZFNUExMUU2QURFRUI3RjIyRjE1ODAzMCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo0RjQ0Njc3OEZFNUExMUU2QURFRUI3RjIyRjE1ODAzMCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PpMrD58AAAM3SURBVHjadFRtSFNRGH7vxzbbdsc095V9TI0QtcXCEg0yyz4oIqkQahUERVRSGWQ/hPpdUlRCQlFi/ZFMiAgq/JiryBBH2dI1w3TK2G5r6nRzbvfu3s7ONNTy5XJ5ec+5z3me933OJcSHdVC4/lK79tlNK4D6TdlXE9gOxa51vWN1snBtsbusxnzzadqdRieADGaDAAgDSPEjJEt6vYImTrP1BZ/vXC/eUWe+1KwcGflgkv7+nSbfyjseXFZHcou2P15rbbDD2BQAP4clmEw6lg2z7DgAnSx5vWGy6spOR+nZge7QfqPH1ZS7KUcBPYHnZ5Y13VqlunDqJbdF7/qyOSMGQM0B8RTFtbQcsFhyASbnimAwKAix0AAjXggAxGBByFNgeiahZg08De48MX4SwIMXRIKA/Hyt3x/x+RAvDiAFnWQwyOmJjUeHiUFNeV7GChE8TvjOQudHuF0Dw+74wETvctPyGZ/zhxbGAxhoGnVNFCUOxzBSR1GKzEzt6OhkNJqQTz1R3fhZWX2keouUnLzPlQuylJV++92qN9TBgyt3aNr6qcM/d731aSA4gFCyszWxmMhxHJ4DZzSmWa0VbW1un8/PMAqy+RzRonvkOXlx2+6u8zUTGtdnKBYaKps2Z92rbVUfL6fZvS/L4SOAUqmk29srSktXA4QASERkaGjMYnk9OBjEMoHav6Lg/tX3x+1F7qgcIDgD0ONW95HZ/hF36yvXi1ARma7wdA99m0qNx4WeHra399f0tIi6azKtTk+X2+19sRgaJc0wEsJgqPN6STwRabIdAAwAC6DC3kHdRWeosaEIzCgF7wyVlKxDXGy2AbwhMUcaDzuMbcLLZHKjUa1USpxORSQiiKKIUZItJ3CiTPoLJTbb4Fxl1q7kPBfECYJraNjT0VFRVpaFGS0VCHcKv5f9BVqMpdPROTlpKpUMscNLwv+AENn4hg1GvT51kScphtkXCnFJXJ6Peb0cSRL19V8CgSiWT/yDFacovrPzWDQa//SpH1NLBMNI0dbaecxFfJRA03Kej/8PKOl7MS8v4XuWDf69j4nvzeZGny+8UIKABZI4X6pfaBqSRf+JPwIMAJk7RC5xiCkIAAAAAElFTkSuQmCC'> hi ">AUD</option>
+								<option value="" data-content="<img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAALCAIAAAD5gJpuAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAEqSURBVHjaYvzPgAD/GBiYaxkY/oARkPMLzPiFwgAIwKG80wAAwlAADAnq0MNWGTipvfcpheWmmy9GNGUPey/RkskiWwP6mhDy5BVAYA0M//8/ecrw9y8QPfj8++/fv7//A9UBFYHIX39//fr3C8iQ5ZEF2gAQQCxgs/9DVAOVrXRe+R8HYGRkfKj6ECCAWIBOZQSqBjuB4fef/7gByJP//gEEENhJf0BmE9bAyPjnzx+AAAI76S/I+P+/f+HXwAi2BCCAwE4CGv/rF8hVv37hcQ+QBDoJIIBAGphBxv9m+A0KG2tr61+/fv3+/RtKgll//vz+8+eviorKxYsXAQIIpIHp9x8GSUmQnj9/Zf78hgCgcyEkEPyFAaA9AAHE+BUcp3AkzEAAAAQYAHrGaQbZnz4fAAAAAElFTkSuQmCC'> hi ">AUD</option>
+						  </select>
+						  <ul class="autorization">
+						  	<li><a href="">Sign In</a></li>
+						  	<li><a href="">Sign Up</a></li>
+						  </ul>
+						</div><!-- /top-line -->
+						<div class="main-nav clearfix">
+							<div class="logo">
+								<a href="index.html"><img src="img/BodyICE_Logo.svg" alt="BodyiCe"></a>
+							</div>
+
+							<div class="top-navigation">
+							<a href="#mobile-menu" class="toggle-mnu"><span></span></a>
+								<ul class="sf-menu desktop-menu">
+									<li><a href="recovery.html">Recovery</a>
+										<ul>
+											<li>
+												<li><a href="#">How to Ice</a></li>
+												<li><a href="#">Ankle, Elbow&Calf</a></li>
+												<li><a href="#">Knee&Calf</a></li>
+												<li><a href="#">Thing&Hamstring</a></li>
+												<li><a href="#">Shoulder</a></li>
+												<li><a href="#">Back&Hip</a></li>
+												<li><a href="#">Replacement Bag</a>
+													<ul>
+														<li><a href="#">9-Inch Bag</a></li>
+														<li><a href="#">11-Inch Bag</a></li>
+														<li><a href="#">11-Inch “Original” Bag</a></li>
+													</ul>
+												</li>
+											</li>
+										</ul>
+									</li>
+									<li><a href="woman.html">Woman</a>
+										<ul>
+											<li>
+												<li><a href="#">How to Ice</a></li>
+												<li><a href="#">Ankle, Elbow&Calf</a></li>
+												<li><a href="#">Knee&Calf</a></li>
+												<li><a href="#">Thing&Hamstring</a></li>
+												<li><a href="#">Shoulder</a></li>
+												<li><a href="#">Back&Hip</a></li>
+												<li><a href="#">Replacement Bag</a>
+													<ul>
+														<li><a href="#">9-Inch Bag</a></li>
+														<li><a href="#">11-Inch Bag</a></li>
+														<li><a href="#">11-Inch “Original” Bag</a></li>
+													</ul>
+												</li>
+											</li>
+										</ul>
+									</li>
+									<li><a href="kids.html">Kids</a>
+										<ul>
+											<li>
+												<li><a href="#">How to Ice</a></li>
+												<li><a href="#">Ankle, Elbow&Calf</a></li>
+												<li><a href="#">Knee&Calf</a></li>
+												<li><a href="#">Thing&Hamstring</a></li>
+												<li><a href="#">Shoulder</a></li>
+												<li><a href="#">Back&Hip</a></li>
+												<li><a href="#">Replacement Replat R</a>
+													<ul>
+														<li><a href="#">9-Inch Bag</a></li>
+														<li><a href="#">11-Inch Bag</a></li>
+														<li><a href="#">11-Inch “Original” Bag</a></li>
+													</ul>
+												</li>
+											</li>
+										</ul>
+									</li>
+									<li><a href="blog.html">Blog</a></li>
+									<li><a href="about.html">About</a></li>
+									<li><a href="contacts.html">Contact</a>
+									</li>
+								</ul>
+								<div class="cart">
+									<img src="img/shopping_cart.svg" alt="cart">
+								</div>
+							</div>
+						</div><!-- /main-nav -->
+					</div>
+				</div>
+			</div>
+		</header>
+		<section class="page-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<h3>Contacts</h3>
+						<div class="row">
+							<div class="col-sm-6">
+								<form class="contacts-form">
+									<input type="name" placeholder="Name">
+									<input type="email" placeholder="Email Address">
+									<textarea placeholder="Messadge"></textarea>
+									<p>* For bulk orders please contact us. Special discounts apply.</p>
+									<button class="main-btn" type="submit">Submit</button>
+								</form>
+							</div>
+							<div class="col-sm-6">
+								<div class="contacts-info">
+									<h4>General</h4>
+									<ul>
+										<li>Phone:<a href="tel:+61 (03) 9015 9842">+61 (03) 9015 9842</a></li>
+										<li>Email:<a href="mailto:info@bodyice.com.au">info@bodyice.com.au</a></li>								
+									</ul>
+									<h4>MEDIA & SALES</h4>
+									<h5>Miranda Boreham</h5>
+									<ul>
+										<li>Phone:<a href="tel:+61 (0) 418 542 255">+61 (0) 418 542 255</a></li>
+										<li>Email:<a href="mailto:miranda@bodyice.com.au">miranda@bodyice.com.au</a></li>					
+									</ul>
+									<h4>Social</h4>
+									<ul class="social">
+										<li>
+											<a href="#">
+												<span class="fa-stack ">
+											  	<i class="fa fa-circle fa-stack-2x"></i>
+											  	<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+												</span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<span class="fa-stack ">
+											  	<i class="fa fa-circle fa-stack-2x"></i>
+											  	<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+												</span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<span class="fa-stack ">
+											  	<i class="fa fa-circle fa-stack-2x"></i>
+											  	<i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+												</span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<span class="fa-stack ">
+											  	<i class="fa fa-circle fa-stack-2x"></i>
+											  	<i class="fa fa-pinterest-p fa-stack-1x fa-inverse"></i>
+												</span>
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<span class="fa-stack ">
+											  	<i class="fa fa-circle fa-stack-2x"></i>
+											  	<i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+												</span>
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+			<div class="distributor">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12">
+							<h2>To become a distributor <span>contact us on</span></h2>
+							<a href="tel:+61 3 9015 9842">+61 3 9015 9842</a> and 
+							<a href="mailto:info@bodyice.com.au">info@bodyice.com.au</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="stocklist">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="country-stocks">
+								<h3>BodyICE Stockists</h3>
+								<div class="country-item">
+									<div class="row">
+										<div class="col-sm-4">
+											<div class="country-title">
+												<h4><img src="img/au.jpg" alt="">Australia</h4>
+											</div>
+										</div>
+										<div class="col-sm-8">
+											<ul class="acc">
+										    <li>
+										      <button class="acc_ctrl"><h2>Victoria</h2> 
+													<i class="fa fa-plus" aria-hidden="true"></i>
+										      </button>
+										      <div class="acc_panel">
+														<ul>
+															<li>Club Warehouse (Recovery)</li>
+															<li>Sydney office</li>
+															<li>PO Box 1021</li>
+															<li>Merrylands, NSW 2160</li>
+															<li>Ph: 02 9637 3105</li>
+															<li>Fax: 02 9760 1188</li>
+															<li><a href="mailto:sales@clubwarehouse.com.au">sales@clubwarehouse.com.au</a></li>
+															<li><a href="www.clubwarehouse.com.au">www.clubwarehouse.com.au</a></li>
+														</ul>
+														<ul>
+															<li>Precious Creatures (Kids)</li>
+															<li>122 Mountjoy Parade, </li>
+															<li>Lorne VIC 3232</li>
+															<li>Ph: (03) 5289 5333</li>
+														</ul>
+														<ul>
+															<li>Club Warehouse (Recovery)</li>
+															<li>Sydney office</li>
+															<li>PO Box 1021</li>
+															<li>Merrylands, NSW 2160</li>
+															<li>Ph: 02 9637 3105</li>
+															<li>Fax: 02 9760 1188</li>
+														</ul>
+										      </div>
+										    </li>
+										    <li>
+										      <button class="acc_ctrl"><h2>Victoria</h2> 
+													<i class="fa fa-plus" aria-hidden="true"></i>
+										      </button>
+										      <div class="acc_panel">
+														<ul>
+															<li>Club Warehouse (Recovery)</li>
+															<li>Sydney office</li>
+															<li>PO Box 1021</li>
+															<li>Merrylands, NSW 2160</li>
+															<li>Ph: 02 9637 3105</li>
+															<li>Fax: 02 9760 1188</li>
+															<li><a href="mailto:sales@clubwarehouse.com.au">sales@clubwarehouse.com.au</a></li>
+															<li><a href="www.clubwarehouse.com.au">www.clubwarehouse.com.au</a></li>
+														</ul>
+														<ul>
+															<li>Precious Creatures (Kids)</li>
+															<li>122 Mountjoy Parade, </li>
+															<li>Lorne VIC 3232</li>
+															<li>Ph: (03) 5289 5333</li>
+														</ul>
+														<ul>
+															<li>Club Warehouse (Recovery)</li>
+															<li>Sydney office</li>
+															<li>PO Box 1021</li>
+															<li>Merrylands, NSW 2160</li>
+															<li>Ph: 02 9637 3105</li>
+															<li>Fax: 02 9760 1188</li>
+														</ul>
+										      </div>
+										    </li>
+										  </ul>
+										</div>
+									</div>							
+								</div><!-- /country-item -->
+								<div class="country-item">
+									<div class="row">
+										<div class="col-sm-4">
+											<div class="country-title">
+												<h4><img src="img/eu.jpg" alt="">Europe</h4>
+											</div>
+										</div>
+										<div class="col-sm-8">
+											<ul class="acc">
+										    <li>
+										      <button class="acc_ctrl"><h2>Victoria</h2> 
+													<i class="fa fa-plus" aria-hidden="true"></i>
+										      </button>
+										      <div class="acc_panel">
+														<ul>
+															<li>Club Warehouse (Recovery)</li>
+															<li>Sydney office</li>
+															<li>PO Box 1021</li>
+															<li>Merrylands, NSW 2160</li>
+															<li>Ph: 02 9637 3105</li>
+															<li>Fax: 02 9760 1188</li>
+															<li><a href="mailto:sales@clubwarehouse.com.au">sales@clubwarehouse.com.au</a></li>
+															<li><a href="www.clubwarehouse.com.au">www.clubwarehouse.com.au</a></li>
+														</ul>
+														<ul>
+															<li>Precious Creatures (Kids)</li>
+															<li>122 Mountjoy Parade, </li>
+															<li>Lorne VIC 3232</li>
+															<li>Ph: (03) 5289 5333</li>
+														</ul>
+														<ul>
+															<li>Club Warehouse (Recovery)</li>
+															<li>Sydney office</li>
+															<li>PO Box 1021</li>
+															<li>Merrylands, NSW 2160</li>
+															<li>Ph: 02 9637 3105</li>
+															<li>Fax: 02 9760 1188</li>
+														</ul>
+										      </div>
+										    </li>
+										    <li>
+										      <button class="acc_ctrl"><h2>Victoria</h2> 
+													<i class="fa fa-plus" aria-hidden="true"></i>
+										      </button>
+										      <div class="acc_panel">
+														<ul>
+															<li>Club Warehouse (Recovery)</li>
+															<li>Sydney office</li>
+															<li>PO Box 1021</li>
+															<li>Merrylands, NSW 2160</li>
+															<li>Ph: 02 9637 3105</li>
+															<li>Fax: 02 9760 1188</li>
+															<li><a href="mailto:sales@clubwarehouse.com.au">sales@clubwarehouse.com.au</a></li>
+															<li><a href="www.clubwarehouse.com.au">www.clubwarehouse.com.au</a></li>
+														</ul>
+														<ul>
+															<li>Precious Creatures (Kids)</li>
+															<li>122 Mountjoy Parade, </li>
+															<li>Lorne VIC 3232</li>
+															<li>Ph: (03) 5289 5333</li>
+														</ul>
+														<ul>
+															<li>Club Warehouse (Recovery)</li>
+															<li>Sydney office</li>
+															<li>PO Box 1021</li>
+															<li>Merrylands, NSW 2160</li>
+															<li>Ph: 02 9637 3105</li>
+															<li>Fax: 02 9760 1188</li>
+														</ul>
+										      </div>
+										    </li>
+										  </ul>
+										</div>
+									</div>							
+								</div><!-- /country-item -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!-- /page-content -->	
+	</div><!-- /wrapper -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="footer-menu">
+						<div class="footer-logo">
+							<img src="img/footer-logo.png" alt="Bodyice">
+						</div>
+						<ul class="footer-categories">
+							<li><a href="#">Recovery</a></li>
+							<li><a href="#">Woman</a></li>
+							<li><a href="#">Kids</a></li>
+						</ul>
+						<ul>     
+							<li><a href="#">FAQ</a></li>
+							<li><a href="#">Blog</a></li>
+							<li><a href="#">Testimotials</a></li>
+						</ul>
+						<ul>
+							<li><a href="#">Where to buy? </a></li>
+							<li><a href="#">Deliveri</a></li>
+							<li><a href="#">Terms</a></li>
+						</ul>
+						<ul>
+							<li><a href="#">Contacts</a></li>
+							<li><a href="#">About</a></li>
+						</ul>
+						<ul class="social">
+							<li>
+								<a href="#">
+									<span class="fa-stack ">
+								  	<i class="fa fa-circle fa-stack-2x"></i>
+								  	<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="fa-stack ">
+								  	<i class="fa fa-circle fa-stack-2x"></i>
+								  	<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="fa-stack ">
+								  	<i class="fa fa-circle fa-stack-2x"></i>
+								  	<i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="fa-stack ">
+								  	<i class="fa fa-circle fa-stack-2x"></i>
+								  	<i class="fa fa-pinterest-p fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="fa-stack ">
+								  	<i class="fa fa-circle fa-stack-2x"></i>
+								  	<i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div><!-- /footer-menu -->
+					<div class="own">
+						<span>© 2017 Body ICE</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="js/scripts.min.js"></script>
+
+</body>
+</html>

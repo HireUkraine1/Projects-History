@@ -1,0 +1,134 @@
+@import './../assets/sass/_vars';
+
+/*
+ * Style base
+ * --------------------------------------------------
+ */
+
+*::-webkit-input-placeholder
+  color: $placeholder-color
+  opacity: 1
+
+*:-moz-placeholder
+  color: $placeholder-color
+  opacity: 1
+
+*::-moz-placeholder
+  color: $placeholder-color
+  opacity: 1
+
+*:-ms-input-placeholder
+  color: $placeholder-color
+  opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+  color: #fff
+
+body input:required:valid,
+body textarea:required:valid
+  color: #fff
+
+html, body
+  height: 100%
+  margin: 0
+  padding: 0
+
+body
+  font-size: 16px
+  min-width: 320px
+  position: relative
+  line-height: 1.75
+  font-family: 'Open Sans'
+  overflow-x: hidden
+  font-weight: normal
+  background-color: #f8f8f8
+
+.img-responsive
+  display: block
+  max-width: 100%
+  height: auto
+
+label
+  font-size: 13px
+
+h2
+  margin: 0
+
+button
+  border: none
+  outline: none
+
+ul
+  margin: 0
+  padding: 0
+  li
+    list-style-type: none
+  a:hover
+    text-decoration: none
+
+section
+  padding: 50px 0
+  h2
+    text-align: center
+    font-size: 36px
+    font-weight: 300
+    margin-bottom: 40px
+    color: #2b2b2b
+
+/* buttons */
+.bt
+  width: 170px
+  padding: 15px 0
+  display: block
+  background-color: $bt-color
+  color: #fff
+  border-radius: 5px
+  text-align: center
+  margin: 0px auto
+  text-transform: uppercase
+  transition: all 0.3s ease
+  &:hover
+    text-decoration: none
+    color: #fff
+    box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.5)
+  &-green
+    background-color: #FFF
+    color: $bt-color
+    &:hover
+      color: $bt-color
+
+.edit-btn
+  background-color: #FFF
+  margin-top: 13px
+  border-radius: 5px
+  color: $blue-color
+  padding: 7px 27px
+  text-transform: uppercase
+  font-size: 13px
+  transition: all 0.3s ease
+  &:hover
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5)
+
+.cancel-btn
+  background-color: transparent
+  color: $blue-color
+  text-transform: uppercase
+  font-size: 13px
+
+.save-btn
+  background-color: $blue-color
+  color: #fff
+  border-radius: 3px
+  padding: 5px 20px
+  text-transform: uppercase
+  font-size: 13px
+
+li.success
+  background-color: $bt-color !important
+  color: #fff
+
+li.attation
+  background-color: #ffbb02 !important
+  color: #fff
+

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Svit_Order>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Svit_Order>
+    </modules>
+</config>

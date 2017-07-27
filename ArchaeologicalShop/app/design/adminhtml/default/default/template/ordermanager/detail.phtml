@@ -1,0 +1,342 @@
+<?php 
+$order = $this->getData('order');
+$_items = $order->getAllItems();
+$orderId = $order->getId();
+?>
+ 
+
+<div class="grid np" id="d_<?php echo $orderId; ?>" style="display:none;position:absolute;margin:45px 0 0 -190px;border:1px solid green">
+   
+   <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'adminhtml/default/default/images/rule_component_remove.gif'?>" onclick="hideDetail('d_<?php echo $orderId; ?>')" style="position:absolute;left:892px;top:-7px;">
+   
+    <div class="hor-scroll">
+    <table cellspacing="0" class="data order-tables">
+        <col />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <col width="1" />
+        <thead>
+            <tr class="headings" style="background:none repeat scroll 0 0 #6f8992;">
+				 <th><?php echo $this->helper('sales')->__('Image') ?></th>
+                <th style="width:175px;"><?php echo $this->helper('sales')->__('Product') ?></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Item Status') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Original Price') ?></span></th>
+                <th><?php echo $this->helper('sales')->__('Price') ?></th>
+                <th class="a-center"><?php echo $this->helper('sales')->__('Qty') ?></th>
+                <th><?php echo $this->helper('sales')->__('Subtotal') ?></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Tax Amount') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Tax Percent') ?></span></th>
+                <th><span class="nobr"><?php echo $this->helper('sales')->__('Discount Amount') ?></span></th>
+                <th class="last"><span class="nobr"><?php echo $this->helper('sales')->__('Row Total') ?></span></th>
+            </tr>
+        </thead>
+        <?php //$_items = $this->getItemsCollection() 
+		$_coreHelper = Mage::helper('core');
+		$totalsItemObj = new Mage_Adminhtml_Block_Sales_Order_Totals_Item();
+		?>
+        <?php $i=0;foreach ($_items as $_item):?>
+		 <?php 
+		 			   $_productId = $_item->getProductId();
+					   $_product = Mage::getModel('catalog/product')->load($_productId);
+					  // $productImage = Mage::helper('catalog/image')->init($_product, 'image')->resize(30);
+					   
+						if ($_product->getImage() != 'no_selection') {
+							$productImage = Mage::helper('catalog/image')->init($_product, 'image')->resize(30);
+							$imgHeightWidth = "";
+						}else{
+							$productImage =  Mage::getDesign()->getSkinUrl('images/placeholder/thumbnail.jpg');
+							$imgHeightWidth = " width='30px;' height='30px;' ";
+						}
+						
+		 ?>
+            <?php if ($_item->getParentItem()) continue; else $i++;?>
+            <tbody class="<?php echo $i%2?'even':'odd' ?>">
+				<tr class="border">
+				<td><img <?php echo $imgHeightWidth; ?> src="<?php echo $productImage ; ?>" /></td>
+				<td>
+					<div class="item-container" id="order_item_1">
+						<div class="item-text">
+							<h5 class="title">
+								<span id="order_item_1_title">
+									<?php echo $_item->getName();?>
+								</span></h5>
+							<div><strong>SKU:</strong> <?php echo $_item->getSku();?></div>
+						</div>
+					</div>
+				</td>
+				<td class="a-center"><?php echo $_item->getStatus();?></td>
+				<td class="a-right"><span class="price"><?php echo $_coreHelper->currency($_item->getPrice(), true, false);?></span></td>
+				<td class="a-right">
+					<span class="price-excl-tax">
+				
+						<span class="price"><?php echo $_coreHelper->currency($_item->getPrice(), true, false);?></span>                
+					</span>
+						<br>	
+				</td>
+				<td>
+					<table cellspacing="0" class="qty-table">
+						<tbody>
+							<tr>
+								<td><?php echo $itemStatus =  $_item->getStatus();
+												$itemStatusId = $_item->getStatusId();
+								?></td>
+								<td>
+									<strong>
+										<?php
+										if($itemStatusId == 9)echo number_format($_item['qty_invoiced'],0);
+										if($itemStatusId == 1)echo  number_format($_item['qty_ordered'],0);
+										if($itemStatusId == 2)echo  number_format($_item['qty_shipped'],0);
+										if($itemStatusId == 5)echo number_format($_item['qty_cancelled'],0);
+										if($itemStatusId == 8)echo  number_format($_item['qty_refunded'],0);
+										
+										
+											 //$obj = new Mage_Adminhtml_Block_Sales_Order_View_Items_Renderer_Default();
+											 //echo $obj->getColumnHtml($_item, 'qty');
+										?>
+									</strong>
+									
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+
+				<td class="a-right">
+					<span class="price-excl-tax">
+						<span class="price"><?php echo $_coreHelper->currency($_item->getRowTotal(), true, false);?></span>                
+					</span>
+						<br>
+				</td>
+				
+				<td class="a-right"><span class="price">
+					<?php echo $_coreHelper->currency($_item->getTaxAmount(), true,false);?>
+				</span></td>
+				
+				<td class="a-right">
+					<?php if ($_item->getTaxPercent()) {
+								echo sprintf('%s%%', $_item->getTaxPercent() + 0);
+							} else {
+								echo '0%';
+							}
+					?>
+				</td>
+				
+				<td class="a-right">
+					<span class="price">
+						<?php echo $_coreHelper->currency($_item->getDiscountAmount(),true, false);?>
+					</span>
+				</td>
+				<td class="a-right last">
+					<span class="price">
+					   <?php echo Mage::helper('adminhtml/sales')->displayPrices($order, 
+							$_item->getBaseRowTotal() + $_item->getBaseTaxAmount() + $_item->getBaseHiddenTaxAmount() + $_item->getBaseWeeeTaxAppliedRowAmount() - $_item->getBaseDiscountAmount(),
+							$_item->getRowTotal() + $_item->getTaxAmount() + $_item->getHiddenTaxAmount() + $_item->getWeeeTaxAppliedRowAmount() - $_item->getDiscountAmount()
+						); ?>
+					</span>
+				</td>
+					
+			</tr>
+			
+            </tbody>
+        <?php endforeach; ?>
+    </table>
+  </div>
+</div>
+<script>
+	function showDetail(order_id)
+	{	
+		document.getElementById(order_id).style.display = 'block'
+	}
+	function hideDetail(order_id)
+	{	
+		document.getElementById(order_id).style.display = 'none'
+	}
+</script>
+
+
+
+<!-- Customer Detail Part -->
+
+
+<div class="grid np" id="c_<?php echo $orderId; ?>" style="display:none;position:absolute;margin:45px 0 0 -190px;border:1px solid green;width:70.5%;">
+   
+   <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'adminhtml/default/default/images/rule_component_remove.gif'?>" onclick="hideDetail('c_<?php echo $orderId; ?>')" style="position:absolute;left:945px;top:-7px;">
+   	
+	
+		<div class="box-left" style="width:49.7%;">
+			<!--Billing Address-->
+			<div class="entry-edit">
+				<div class="entry-edit-head">
+					<h4 class="icon-head head-billing-address"><?php echo Mage::helper('sales')->__('Billing Address') ?></h4>
+				</div>
+				<fieldset style="margin-bottom:5px;">
+					<address><?php echo $order->getBillingAddress()->getFormated(true) ?></address>
+				</fieldset>
+			</div>
+		</div>
+				
+		<?php if (!$order->getIsVirtual()): ?>
+			<div class="box-right" style="width:49.7%;">
+				<!--Shipping Address-->
+				<div class="entry-edit">
+					<div class="entry-edit-head">
+						<h4 class="icon-head head-shipping-address"><?php echo Mage::helper('sales')->__('Shipping Address') ?></h4>
+					</div>
+					<fieldset style="margin-bottom:5px;">
+						<address><?php echo $order->getShippingAddress()->getFormated(true) ?></address>
+					</fieldset>
+				</div>
+			</div>
+			<div class="clear"></div>
+		<?php endif; ?>
+		
+		<div class="box-left" style="width:49.7%;">
+			<!--Billing Address-->
+			<div class="entry-edit">
+				<div class="entry-edit-head">
+					<h4 class="icon-head head-payment-method"><?php echo $this->helper('sales')->__('Payment Information') ?></h4>
+				</div>
+				<fieldset style="margin-bottom:5px;">
+					<div>
+ 						<strong>	
+							<?php //echo $order->getPayment()->getMethodInstance()->getTitle();?> 
+						</strong>
+					</div>
+					<div><?php echo Mage::helper('sales')->__('Order was placed using %s', $order->getOrderCurrencyCode()) ?></div>
+				</fieldset>
+			</div>
+		</div>
+
+		<div class="box-right" style="width:49.7%;">
+  		  <!--Shipping Address-->
+			<div class="entry-edit">
+				<div class="entry-edit-head">
+					<h4 class="icon-head head-shipping-method"><?php echo $this->helper('sales')->__('Shipping and Tracking Information') ?></h4>
+				</div>
+ 				  <fieldset style="margin-bottom:5px;">
+					<div>
+					 
+						<strong><?php echo $order->getShippingDescription() ?></strong>
+						<br />
+						<?php echo $this->helper('sales')->__('Total Shipping Charges'); ?>:
+						<?php echo sprintf("%.2f", $order->getShippingAmount()); ?>
+		 
+					</div>
+			 
+					<div><?php //echo $this->getChildHtml('shipment_tracking') ?></div>
+				</fieldset>
+			</div>
+		</div>
+
+</div>
+
+
+<script>
+	function showCusDetail(order_id)
+	{	
+		document.getElementById(order_id).style.display = 'block'
+	}
+	function hideCusDetail(order_id)
+	{	
+		document.getElementById(order_id).style.display = 'none'
+	}
+</script>
+
+
+<!-- Customer Speak -->
+
+<div class="grid np" id="s_<?php echo $orderId;?>" style="display:none;position:absolute;margin:45px 0 0 -65px;border:1px solid green;width:35%;">
+   
+   <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'adminhtml/default/default/images/rule_component_remove.gif'?>" onclick="hideDetail('s_<?php echo  $orderId;?>')" style="position:absolute;left:465px;top:-7px;">
+   	
+	
+		<div class="box-left1">
+			<!--Billing Address-->
+			<div class="entry-edit">
+				<div class="entry-edit-head">
+					<h4 class="icon-head head-billing-address"><?php echo Mage::helper('sales')->__('Update Customer') ?></h4>
+				</div>
+				<fieldset style="margin-bottom:5px;border:0px">
+	
+		<form id="gridUpdateCustomer" method="post">
+					<div>
+						 <label class="normal" for="history_comment"><?php echo Mage::helper('sales')->__('Comment') ?></label>
+            			<textarea class="required-entry" name="history[comment]" rows="3" cols="5" style="height:6em; width:99%;" id="history_comment"></textarea>
+					</div>
+
+					<div class="f-left">
+						<input name="history[is_customer_notified]" type="checkbox" id="history_notify" value="1" />
+						<label class="normal" for="history_notify"> <?php echo Mage::helper('sales')->__('Notify Customer by Email') ?></label><br />
+						<input name="history[is_visible_on_front]" type="checkbox" id="history_visible" value="1" />
+						<label class="normal" for="history_visible"> <?php echo Mage::helper('sales')->__('Visible on Frontend') ?></label>
+     			   </div> 
+
+	<input type="hidden" name="order_id" id="order_id" value="<?php echo $orderId;?>"  />
+	<input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>" />
+</form>
+
+<div style="margin-top:10px;width:48%">
+			<button class="scalable save" onclick="updateCustomer('<?php echo $orderId;?>')">
+			<span><span><span><?php echo $this->helper('sales')->__('Submit') ?></span></span></span>
+		</button> 
+</div>
+			
+				</fieldset>
+			</div>
+		</div>
+ 
+
+</div>
+
+<!-- Admin Order Note -->
+
+
+<div class="grid np" id="e_<?php echo $orderId; ?>" style="display:none;position:absolute;margin:45px 0 0 -65px;border:1px solid green;width:35%;">
+   
+   <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'adminhtml/default/default/images/rule_component_remove.gif'?>" onclick="hideDetail('e_<?php echo $orderId; ?>')" style="position:absolute;left:465px;top:-7px;">
+   	
+	
+		<div class="box-left1">
+ 
+			<div class="entry-edit">
+				<div class="entry-edit-head">
+					<h4 class="icon-head head-billing-address"><?php echo Mage::helper('sales')->__('Admin Special Note for Order' ); ?></h4>
+				</div>
+				
+				<fieldset style="margin-bottom:5px;border:0px">
+					<?php if($order->getEditComments() != ""){?>
+						<span id="admin_comment<?php echo $orderId; ?>" title="Click to edit"><?php echo $order->getEditComments(); ?></span>
+	<script type="text/javascript">
+								new Ajax.InPlaceEditor('admin_comment<?php echo $orderId; ?>', '<?php echo $this->getUrl("ordermanager/adminhtml_ordereditor/saveadmincomment/field/comment/")."order_id/".$orderId ; ?>',{highlightColor:'#E2F1B1',field_type : 'textarea',rows:9,cols:72});
+			</script>
+					<?php }else{?>
+						<span id="admin_comment<?php echo $orderId; ?>" title="Click to edit"><?php echo Mage::helper('sales')->__('Click here to set set Admin Comment') ?></span>
+<script type="text/javascript">
+								new Ajax.InPlaceEditor('admin_comment<?php echo $orderId; ?>', '<?php echo $this->getUrl("ordermanager/adminhtml_ordereditor/saveadmincomment/field/comment/")."order_id/".$orderId ; ?>',{highlightColor:'#E2F1B1',field_type : 'textarea',rows:9,cols:72});
+			</script>
+			
+					<?php } ?>
+					
+ 				</fieldset>
+			</div>
+ 		</div>
+ </div>
+
+
+<script>
+	function showEditDetail(order_id)
+	{	
+		document.getElementById(order_id).style.display = 'block'
+	}
+	function hideEditDetail(order_id)
+	{	
+		document.getElementById(order_id).style.display = 'none'
+	}
+</script>
+

@@ -1,0 +1,154 @@
+<config>
+    <modules>
+        <AWeberCommunications_EmailMarketing>
+            <version>1.0.4</version>
+        </AWeberCommunications_EmailMarketing>
+    </modules>
+
+
+    <crontab>
+        <jobs>
+            <subscribe_subscribers>
+                <!-- when your customers purchase items from your store we queue
+                     the subscribers to a queue to be processed by a cron job every
+                     minute.  This keeps your order process quick and prevents API
+                     maintenance from interefering with your store's checkout operations
+
+                     http://www.magentocommerce.com/wiki/1_-_installation_and_configuration/how_to_setup_a_cron_job
+                     http://www.magentocommerce.com/boards/viewthread/196660/#t289069
+
+                     need to register host with '127.0.0.1' not localhost in magento/app/etc/local.xml
+                     or use  /Applications/MAMP/tmp/mysql/mysql.sock (path to socket)
+                -->
+                <schedule>
+                    <cron_expr>* * * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>emailmarketing/observer::processQueue</model>
+                </run>
+            </subscribe_subscribers>
+        </jobs>
+    </crontab>
+
+    <admin>
+        <routers>
+            <!-- section to allow a new 'page' in the admin section. -->
+            <emailmarketing>
+                <use>admin</use>
+                <args>
+                    <module>AWeberCommunications_EmailMarketing</module>
+                    <frontName>emailmarketing</frontName>
+                </args>
+            </emailmarketing>
+        </routers>
+    </admin>
+
+    <frontend>
+        <routers>
+            <!-- section to allow a new 'page' for email marketing.  -->
+            <emailmarketing>
+                <use>standard</use>
+                <args>
+                    <module>AWeberCommunications_EmailMarketing</module>
+                    <frontName>emailmarketing</frontName>
+                </args>
+            </emailmarketing>
+        </routers>
+    </frontend>
+
+    <global>
+        <helpers>
+            <emailmarketing>
+                <class>AWeberCommunications_EmailMarketing_Helper</class>
+            </emailmarketing>
+        </helpers>
+        <models>
+            <observer>
+                <!-- the model that contains the observer code -->
+                <class>AWeberCommunications_EmailMarketing_Observer</class>
+            </observer>
+            <aweber_api>
+                <!-- the model that contains the aweber api client library -->
+                <class>AWeberCommunications_EmailMarketing_AWeber</class>
+            </aweber_api>
+            <wasp>
+                <!--
+                the model that contains the aweber api wasp module
+                wasp is a module that we use for all shopping cart api integrations
+                to standarize how we process add subscriber requests from integrations
+                -->
+                <class>AWeberCommunications_EmailMarketing_WASP</class>
+            </wasp>
+            <emailmarketing>
+                <!-- the model that allows us to store integration settings -->
+                <class>AWeberCommunications_EmailMarketing_Model</class>
+                <resourceModel>emailmarketing_mysql4</resourceModel>
+            </emailmarketing>
+
+            <emailmarketing_mysql4>
+                <!-- the database bridge that connects our data model to a Mysql Backend -->
+                <class>AWeberCommunications_EmailMarketing_Model_Mysql4</class>
+                <entities>
+                    <config>
+                        <table>AWeberCommunications_EmailMarketing_Config</table>
+                    </config>
+                    <queue>
+                        <table>AWeberCommunications_EmailMarketing_Queue</table>
+                    </queue>
+                </entities>
+            </emailmarketing_mysql4>
+        </models>
+        <resources>
+            <emailmarketing_setup>
+                <setup>
+                    <module>AWeberCommunications_EmailMarketing</module>
+                    <class>AWeberCommunications_EmailMarketing_Model_Resource_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </emailmarketing_setup>
+            <emailmarketing_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </emailmarketing_write>
+            <emailmarketing_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </emailmarketing_read>
+        </resources>
+        <events>
+            <sales_order_place_after>
+                <!-- 
+                create an observer to add a subscriber to a customer's list when their customers
+                purchase items from their magento store.
+                -->
+                <observers>
+                    <aweber_subscribeCustomer>
+                        <class>AWeberCommunications_EmailMarketing_Model_Observer</class>
+                        <method>subscribeCustomer</method>
+                    </aweber_subscribeCustomer>
+                </observers>
+            </sales_order_place_after>
+        </events>
+    </global>
+
+    <adminhtml>
+        <!-- 
+        The acl section is for access control. Here we define the pieces where access can be controlled within a role.
+        -->
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <aweber_menu>
+                            <title>AWeber Email Marketing</title>
+                        </aweber_menu>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Svit_Dollar>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Svit_Dollar>
+    </modules>
+</config>

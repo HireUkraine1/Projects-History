@@ -1,0 +1,208 @@
+@import './../../assets/sass/_vars';
+
+.result-header
+  header
+    background-image: none
+    &::after
+      display: none
+  .top-line
+    background-color: #FFF
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .26)
+    nav
+      padding: 20px 0
+      a
+        color: #333
+        &:hover::after
+          width: 100%
+          background: #333
+        &:hover
+          color: #333
+        &:focus
+          text-decoration: none
+          color: #333
+    .sign-nav
+      margin-left: 30px
+      li:last-child
+        a
+          background-color: #51b55a
+          color: #fff
+    .top-line-logo
+      display: block
+      padding: 20px 0
+
+.website-tree
+  margin-top: 200px
+
+.website-tree-top
+  background-color: #FFF
+  border-radius: 5px
+  padding: 20px
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
+
+.website-title-img
+  height: 40px
+  width: 40px
+  border-radius: 50%
+  overflow: hidden
+  padding: 3px
+  box-shadow: 0px 0px 3px 0px rgba(140, 140, 140, 0.3)
+  img
+    width: 100%
+
+.website-title
+  display: flex
+  align-items: center
+  margin-bottom: 20px
+  span
+    color: #999494
+    margin-left: 15px
+
+.website-info
+  margin-left: 20px
+
+.website-tree-pages
+  display: flex
+  li
+    width: 150px
+    height: 75px
+    margin-right: 10px
+    border-radius: 5px
+    padding: 10px
+    // display: flex
+    // flex-direction: column
+    // align-items: center
+    text-align: center
+    line-height: 1.2
+    background-color: $default-color
+    p
+      margin: 0px
+      font-size: 13px
+    span
+      font-size: 30px
+      color: #fff
+      font-weight: 700
+      line-height: 1
+      margin-bottom: 3px
+
+.browser
+  cursor: pointer
+
+.website-tree-map
+  .col-xs-12
+    padding-right: 0
+    padding-left: 0
+
+.website-tree-child
+  display: flex
+  align-items: center
+
+.website-tree-list
+  li
+    background-color: #fff
+    margin: 15px 0
+    border-radius: 5px
+    padding: 5px 10px
+    position: relative
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2)
+    margin-left: 40px
+    &::before
+      content: ""
+      width: 20px
+      height: 2px
+      background: #d7d7d7
+      position: absolute
+      left: -15px
+      top: 30px
+      z-index: -1
+    &::after
+      content: ""
+      width: 2px
+      height: 125%
+      background: #d7d7d7
+      position: absolute
+      left: -17px
+      top: -31px
+      z-index: -1
+    &:last-child
+      &::after
+        content: ""
+        height: 63px
+
+  .parent-link
+    margin-left: 0
+    &::after,
+    &::before
+      content: ""
+      display: none
+
+.list-header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding-right: 10px
+  position: relative
+
+.ui-accordion-content
+  h5
+    font-size: 13px
+    font-weight: 500
+    color: #878787
+    margin-top: 25px
+  p
+    color: #616161
+
+.ui-accordion
+  .ui-accordion-header
+    position: absolute
+    top: 25px
+    font-size: 20px
+    right: 10px
+    border: none
+    background: none
+    > .fa
+      display: none
+    a
+      padding: 0
+    &:hover
+      background: none !important
+
+.page_url
+  font-weight: 300
+  font-size: 13px
+  width: 200px
+  overflow: hidden
+  display: block
+  text-overflow: ellipsis
+  white-space: nowrap
+
+.mat-checkbox-inner-container
+  margin-right: 20px
+
+.goChild,
+.goParent
+  margin-left: 20px
+  margin-right: 20px
+  font-size: 25px
+  .fa
+    color: #017ed6
+    cursor: pointer
+
+.open-tab
+  font-size: 20px
+  color: #017ed6
+  cursor: pointer
+
+.ui-g-12
+  width: 85%
+
+.browser-select
+  padding: 20px
+  background-color: #f7f7f7
+  margin: 20px 0
+  border-radius: 5px
+  table
+    width: 100%
+
+.ui-chkbox-label
+  font-weight: 400
+  display: inline

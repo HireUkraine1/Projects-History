@@ -1,0 +1,34 @@
+<div class="top-line" [class.sticky]="navIsFixed">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <button class="toggle_mnu" (click)="onSelect();isClassVisible = !isClassVisible; isMobNav = !isMobNav;">
+							<span class="sandwich" [ngClass]="{'active': isClassVisible }">
+								<span class="sw-topper"></span>
+								<span class="sw-bottom"></span>
+								<span class="sw-footer"></span>
+							</span>
+                </button>
+                <div class="top-line-logo">
+                    <img src="/src/assets/img/logo.png" alt="">
+                </div>
+                <nav>
+                    <ul class="main-nav">
+                        <li><a>Features</a></li>
+                        <li><a href="#aboutUs">About Us</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                    <ul class="mob-nav" [hidden]="IsHidden" [@mobileMenu]='state' [ngClass]="{'active': isMobNav }">
+                        <li [@mobileMenuItems]='state'><a href="#features">Features</a></li>
+                        <li [@mobileMenuItems2]='state'><a href="#aboutUs">About Us</a></li>
+                        <li [@mobileMenuItems3]='state'><a href="#contact">Contact Us</a></li>
+                    </ul>
+                    <ul class="sign-nav">
+                        <li><a href="#">Sign In</a></li>
+                        <li><a href="#">Sign Up</a></li>
+                    </ul>
+                </nav>
+            </div><!-- /col-md-12 -->
+        </div><!-- /row -->
+    </div><!-- /container -->
+</div><!-- /top-line -->

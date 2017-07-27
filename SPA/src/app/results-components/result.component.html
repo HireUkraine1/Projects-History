@@ -1,0 +1,49 @@
+<div class="result-header">
+    <topline-comp></topline-comp>
+</div>
+
+<section class="website-tree">
+    <!--<div id="sitemap"></div>-->
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <md-progress-bar *ngIf="!users" mode="indeterminate"></md-progress-bar>
+                <div class="website-tree-top" *ngIf="users">
+                    <div class="website-title">
+                        <div class="website-title-img">
+                            <img src="#" alt="favicon">
+                        </div>
+                        <p class="website-info"><span> web site title </span></p>
+                    </div>
+                    <ul class="website-tree-pages">
+                        <li class="total page-info">
+                            <span>{{users.total}}</span>
+                            <p>Total Pages</p>
+                        </li>
+                        <li class="error page-info">
+                            <span>{{users.total_pages}}</span>
+                            <p>Error 404 Pages</p>
+                        </li>
+                        <li class="changes page-info">
+                            <span>{{users.per_page}}</span>
+                            <p>Changed Pages</p>
+                        </li>
+                        <li class="limit page-info">
+                            <span>{{users.total_pages}}</span>
+                            <p>Limit of screenshots</p>
+                        </li>
+                        <li class="browser page-info" (click)="showBrowsers()">
+                            <p>Browser <br> Resolutions</p>
+                            <i class="fa fa-angle-up"></i>
+                        </li>
+                    </ul>
+                    <browser-list></browser-list>
+                </div>
+
+                <router-outlet></router-outlet>
+
+            </div>
+        </div>
+    </div>
+
+</section>

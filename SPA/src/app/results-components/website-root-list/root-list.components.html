@@ -1,0 +1,39 @@
+<div class="website-tree-map" *ngIf="users">
+    <div class="col-xs-12">
+        <ul class="website-tree-list">
+            <li *ngFor="let user of users.data">
+                <div class="list-header">
+                    <div class="ui-g-12">
+                        <p-checkbox name="group1" value="{{ user.first_name }} " label="{{ user.first_name }}"
+                                    [(ngModel)]="selectedLinks"></p-checkbox>
+                        <a class="page_url" href="{{user.avatar}}">{{user.avatar}}</a>
+                    </div>
+                    <div class="website-tree-child">
+                        <span>Level {{user.id}} </span>
+                        <span class="goChild"><i class="fa fa-arrow-circle-o-right" aria-hidden="true"
+                                                 [routerLink]="['/results', user.id]"></i></span>
+                    </div>
+                </div>
+                <p-accordion [multiple]="true" class="list-accordion">
+                    <p-accordionTab>
+                        <p-header>
+                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                        </p-header>
+                        <h5>URl</h5>
+                        <a href="#">{{user.avatar}} </a>
+                        <h5>Description</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi aliquam magnam odio
+                            exercitationem earum
+                            illo numquam consequuntur, cumque, fugiat eaque laboriosam impedit autem error dicta
+                            assumenda tempora quisquam
+                            quo iste.</p>
+                        <h5>Info</h5>
+                    </p-accordionTab>
+                </p-accordion>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!--remove it-->
+Selected : <span *ngFor="let city of selectedLinks" style="margin-right:10px">{{city}}</span>

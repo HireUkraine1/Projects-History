@@ -1,0 +1,543 @@
+<?php
+/**
+ * Template for Mage_Adminhtml_Block_Widget_Grid
+ *
+ *  getId()
+ *  getCollection()
+ *  getColumns()
+ *  getPagerVisibility()
+ *  getVarNamePage()
+ */
+$numColumns = sizeof($this->getColumns());
+?>
+<?php if($this->getCollection()): ?>
+    <?php if($this->canDisplayContainer()): ?>
+        <?php if($this->getGridHeader()): ?>
+        <div class="content-header">
+            <table cellspacing="0">
+                <tr>
+                    <td style="width:50%;"><h2><?php echo $this->getGridHeader(); ?></h2></td>
+                </tr>
+            </table>
+        </div>
+        <?php endif ?>
+
+        <div id="<?php echo $this->getId() ?>">
+    <?php else: ?>
+        <?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+    <?php endif; ?>
+<?php if($this->getPagerVisibility() || $this->getExportTypes() || $this->getFilterVisibility()): ?>
+    <table cellspacing="0" class="actions">
+        <tr>
+        <?php if($this->getPagerVisibility()): ?>
+            <td class="pager">
+            <?php echo $this->__('Page') ?>
+
+            <?php $_curPage  = $this->getCollection()->getCurPage() ?>
+            <?php $_lastPage = $this->getCollection()->getLastPageNumber() ?>
+            <?php if($_curPage>1): ?>
+                <a href="#" title="<?php echo $this->__('Previous page') ?>" onclick="<?php echo $this->getJsObjectName() ?>.setPage('<?php echo ($_curPage-1) ?>');return false;"><img src="<?php echo $this->getSkinUrl('images/pager_arrow_left.gif') ?>" alt="Go to Previous page" class="arrow"/></a>
+            <?php else: ?>
+                <img src="<?php echo $this->getSkinUrl('images/pager_arrow_left_off.gif') ?>" alt="Go to Previous page" class="arrow"/>
+            <?php endif; ?>
+
+            <input type="text" name="<?php echo $this->getVarNamePage() ?>" value="<?php echo $_curPage ?>" class="input-text page" onkeypress="<?php echo $this->getJsObjectName() ?>.inputPage(event, '<?php echo $_lastPage ?>')"/>
+
+            <?php if($_curPage < $_lastPage): ?>
+                <a href="#" title="<?php echo $this->__('Next page') ?>" onclick="<?php echo $this->getJsObjectName() ?>.setPage('<?php echo ($_curPage+1) ?>');return false;"><img src="<?php echo $this->getSkinUrl('images/pager_arrow_right.gif') ?>" alt="Go to Next page" class="arrow"/></a>
+            <?php else: ?>
+                <img src="<?php echo $this->getSkinUrl('images/pager_arrow_right_off.gif') ?>" alt="Go to Previous page" class="arrow"/>
+            <?php endif; ?>
+
+            <?php echo $this->__('of %s pages', $this->getCollection()->getLastPageNumber()) ?>
+            <span class="separator">|</span>
+            <?php echo $this->__('View') ?>
+            <select name="<?php echo $this->getVarNameLimit() ?>" onchange="<?php echo $this->getJsObjectName() ?>.loadByElement(this)">
+                <option value="20"<?php if($this->getCollection()->getPageSize()==20): ?> selected="selected"<?php endif; ?>>20</option>
+                <option value="30"<?php if($this->getCollection()->getPageSize()==30): ?> selected="selected"<?php endif; ?>>30</option>
+                <option value="50"<?php if($this->getCollection()->getPageSize()==50): ?> selected="selected"<?php endif; ?>>50</option>
+                <option value="100"<?php if($this->getCollection()->getPageSize()==100): ?> selected="selected"<?php endif; ?>>100</option>
+                <option value="200"<?php if($this->getCollection()->getPageSize()==200): ?> selected="selected"<?php endif; ?>>200</option>
+            </select>
+            <?php echo $this->__('per page') ?><span class="separator">|</span>
+            <?php echo $this->__('Total %d records found', $this->getCollection()->getSize()) ?>
+            <span id="<?php echo $this->getHtmlId() ?>-total-count" class="no-display"><?php echo $this->getCollection()->getSize() ?></span>
+            <?php if($this->getRssLists()): ?>
+                <?php foreach ($this->getRssLists() as $_rss): ?>
+                <span class="separator">|</span><a href="<?php echo $_rss->getUrl() ?>" class="link-feed"><?php echo $_rss->getLabel() ?></a>
+                <?php endforeach ?>
+            <?php endif; ?>
+			<span class="separator">|</span> <img style="cursor:pointer;" height="18px" width="18px" onclick="showBroadcastForm()" src="<?php echo $this->getSkinUrl('images/bradcast.png') ?>" title="Bradcast Message" alt="Bradcast Message" class="v-middle"/>&nbsp;<span style="text-decoration:underline;cursor:pointer;" onclick="showBroadcastForm()"  ><?php echo $this->__('Broadcast Message') ?></span>
+			
+
+
+<?php
+	$statuses = Mage::getSingleton('sales/order_config')->getStatuses(); 
+		$i = 0 ;$str = ''; 
+		$count = count($statuses) ;
+		 foreach($statuses as $key=>$value)
+		 {
+			if($i <= $count){
+				$str .= "['"  .  $key  ."', '"  . $value . "'], " ; 
+			 }	
+		 }
+ 
+?> 
+
+<div class="grid np" id="bradcastmessage" style="display:none;position:absolute;border:1px solid green;width:35%;margin:-21px 0px 0px 650px;">
+   
+   <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'adminhtml/default/default/images/rule_component_remove.gif'?>" onclick="hideBroadcastForm()" style="position:absolute;left:465px;top:-7px;">
+   	
+	
+		<div class="box-left1">
+			<!--Billing Address-->
+			<div class="entry-edit">
+				<div class="entry-edit-head">
+					<h4 class="icon-head head-billing-address"><?php echo Mage::helper('sales')->__('Broadcast Message to Customers') ?></h4>
+				</div>
+				<fieldset style="margin-bottom:5px;border:0px">
+	
+			<form id="bradcastMessageForm" method="post">
+			
+					<div style="width:100%;">
+						<div style="width:50%;float:left;margin-right:5px;">
+							<select multiple="multiple" style="width:100%;min-width:100%;" size="6" class=" select multiselect" name="status[]" id="order_statuses">
+								<option selected="selected" value="">-- Please Select --</option>
+								<?php 
+									 foreach($statuses as $key=>$value)
+									 {
+								?>
+								<option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+								<?php } ?>
+							</select>
+						</div>
+						<div>
+							Select the order status for you want to send the message.
+							<br/><br/><i>If no status is selected, it will take default system configuration Broadcast message status.</i>
+						</div>
+					</div>
+					
+					<div style="clear:both;">
+						 <label class="normal" for="history_comment"><?php echo Mage::helper('sales')->__('Comment') ?></label>
+						<textarea class="required-entry" name="history[comment]" rows="3" cols="5" style="height:6em; width:99%;" id="history_comment_broad"></textarea>
+					</div>
+	
+					<div class="f-left">
+						<input name="history[is_customer_notified]" type="checkbox" id="history_notify" value="1" />
+						<label class="normal" for="history_notify"> <?php echo Mage::helper('sales')->__('Notify Customer by Email') ?></label><br />
+						<input name="history[is_visible_on_front]" type="checkbox" id="history_visible" value="1" />
+						<label class="normal" for="history_visible"> <?php echo Mage::helper('sales')->__('Visible on Frontend') ?></label>
+				   </div> 
+	
+				<input type="hidden" name="form_key" value="<?php echo $this->getFormKey(); ?>" />
+			</form>
+
+			<div style="margin-top:10px;width:48%"> 
+						<button class="scalable save" onclick="bradcastMessage()">
+							<span><span><span><?php echo $this->helper('sales')->__('Submit') ?></span></span></span>
+						</button> 
+			</div>
+			
+				</fieldset>
+			</div>
+		</div>
+</div>
+
+
+        </td>
+    <?php endif ?>
+    <?php if($this->getExportTypes()): ?>
+        <td class="export a-right">
+            <img src="<?php echo $this->getSkinUrl('images/icon_export.gif') ?>" alt="" class="v-middle"/>&nbsp; <?php echo $this->__('Export to:') ?>
+            <select name="<?php echo $this->getId() ?>_export" id="<?php echo $this->getId() ?>_export" style="width:8em;">
+            <?php foreach ($this->getExportTypes() as $_type): ?>
+                <option value="<?php echo $_type->getUrl() ?>"><?php echo $_type->getLabel() ?></option>
+            <?php endforeach; ?>
+            </select>
+            <?php echo $this->getExportButtonHtml() ?>
+        </td>
+    <?php endif; ?>
+        <td class="filter-actions a-right">
+            <?php echo $this->getMainButtonsHtml() ?>
+        </td>
+        </tr>
+    </table>
+<?php endif; ?>
+<?php if($this->getMassactionBlock()->isAvailable()): ?>
+<?php echo $this->getMassactionBlockHtml() ?>
+<?php endif ?>
+<div class="grid">
+    <div class="hor-scroll">
+    <table cellspacing="0" class="data" id="<?php echo $this->getId() ?>_table">
+        <?php foreach ($this->getColumns() as $_column): ?>
+        <col <?php echo $_column->getHtmlProperty() ?> />
+        <?php endforeach; ?>
+        <?php if ($this->getHeadersVisibility() || $this->getFilterVisibility()): ?>
+            <thead>
+                <?php if ($this->getHeadersVisibility()): ?>
+                    <tr class="headings">
+                    <?php foreach ($this->getColumns() as $_column): ?>
+                        <th<?php echo $_column->getHeaderHtmlProperty() ?>><span class="nobr"><?php echo $_column->getHeaderHtml() ?></span></th>
+                    <?php endforeach; ?>
+                    </tr>
+                <?php endif; ?>
+                <?php if ($this->getFilterVisibility()): ?>
+                    <tr class="filter">
+                    <?php $i=0;foreach ($this->getColumns() as $_column): ?>
+                        <th<?php echo $_column->getHeaderHtmlProperty() ?>><?php echo $_column->getFilterHtml() ?></th>
+                    <?php endforeach; ?>
+                    </tr>
+                <?php endif ?>
+            </thead>
+        <?php endif; ?>
+        <?php if ($this->getCountTotals()): ?>
+            <tfoot>
+                <tr class="totals">
+                <?php foreach ($this->getColumns() as $_column): ?>
+                    <th class="<?php echo $_column->getCssProperty() ?>"><?php echo ($_column->hasTotalsLabel()) ? $_column->getTotalsLabel() : $_column->getRowField($_column->getGrid()->getTotals()) ?>&nbsp;</th>
+                <?php endforeach; ?>
+                </tr>
+            </tfoot>
+        <?php endif; ?>
+
+
+
+
+<?php 
+
+		$defaultColours = Mage::getStoreConfig('orderview/general/order_status_color');
+		$defaultColoursExp = explode(",",$defaultColours);
+		$defaultColoursExp = array_filter($defaultColoursExp);
+
+		foreach($defaultColoursExp as $colorStr)
+		{
+			$colorStrArr = explode("|",$colorStr);
+			$code = trim($colorStrArr[0]);
+			$colorStrArrMerge[$code] = trim($colorStrArr[1]);
+		}
+?>
+        <tbody>
+        <?php if (($this->getCollection()->getSize()>0) && (!$this->getIsCollapsed())): ?>
+        <?php foreach ($this->getCollection() as $_index=>$_item): ?>
+		
+			<?php 
+		$orderStatusCode = $_item->getStatus();
+
+			// echo '<pre>';print_r($_item);die;
+			/* $orderStatusCode = $_item->getStatus();
+			 $status = Mage::getModel('sales/order_status')->load($orderStatusCode);
+			 $orderStatusColor = $status['colour'];
+*/
+		?>
+		
+		
+            <tr style="<?php if($colorStrArrMerge[$orderStatusCode] != ""){?>background-color:#<?php echo $colorStrArrMerge[$orderStatusCode];?>;<?php } ?>"   title="<?php echo $this->getRowUrl($_item) ?>"<?php if ($_class = $this->getRowClass($_item)):?> class="<?php echo $_class; ?>"<?php endif;?> >
+     
+	        <?php $i=0;foreach ($this->getColumns() as $columnId => $_column): ?>
+ <?php //echo '<pre>';print_r($_column);die;?>
+            
+			    <?php if ($this->shouldRenderCell($_item, $_column)):?>
+                    <?php $_rowspan = $this->getRowspan($_item, $_column);?>
+            
+			<?php $OrderId = $_item->getId();?>
+		 	<?php 
+				$trackDataCount = 0;
+				$trackNumArr[0] = $trackNumArr[1] ='';
+					if($columnId == "track_number")
+					{
+						$trackData = $_column->getRowField($_item);
+						$trackData = explode(",",$trackData);
+						//echo '<pre>';print_r($trackData);die;
+						
+						$trackData = array_filter($trackData);
+						$trackDataCount = count($trackData);
+						//echo '<pre>';print_r($_column->getRowField($_item));die;
+					}
+			?>
+			
+	<?php if($columnId == "track_number"){?>
+			
+			  <td <?php echo ($_rowspan ? 'rowspan="' . $_rowspan . '" ' : '') ?>class="<?php echo $_column->getCssProperty() ?> <?php echo ++$i==$numColumns?'last':'' ?>">
+				  <?php 
+			  			if($trackDataCount>1)
+						{
+							foreach($trackData as $trackNum){
+							$trackNumArr = explode("/",$trackNum);
+					?>
+						<span id="track_number<?php echo $OrderId.'-'.$trackNumArr[1]; ?>" title="Click to edit"><?php echo $trackNumArr[0]; //(($_html = $_column->getRowField($_item)) != '' ? $_html : '&nbsp;')  ?></span><br/>
+			  			
+						<script type="text/javascript">
+								new Ajax.InPlaceEditor('track_number<?php echo $OrderId.'-'.$trackNumArr[1]; ?>', '<?php echo $this->getUrl("ordermanager/adminhtml_ordereditor/savetracking/field/tracking/")."order_id/".$OrderId."/entity_id/".$trackNumArr[1]; ?>',{okText: '', cancelText:'.....',highlightColor:'#E2F1B1',field_type : 'textbox'});
+							</script>
+					
+						<?php } //foreach
+							  }//if count
+							 else{
+							 
+							 if($trackDataCount == 1)
+							 {
+								//echo '<pre>';print_r($trackData);die;
+								$trackNumArr = explode("/",$trackData[0]);	 
+						?>
+					
+		<span id="track_number<?php echo $OrderId.'-'.$trackNumArr[1]; ?>" title="Click to edit"><?php echo $trackNumArr[0]; ?></span>
+	
+								<script type="text/javascript">
+								new Ajax.InPlaceEditor('track_number<?php echo $OrderId.'-'.$trackNumArr[1]; ?>', '<?php echo $this->getUrl("ordermanager/adminhtml_ordereditor/savetracking/field/tracking/")."order_id/".$OrderId."/entity_id/".$trackNumArr[1] ; ?>',{okText: '', cancelText:'.....',highlightColor:'#E2F1B1',field_type : 'textbox'});
+							</script>
+							
+					<?php }else{  ?>
+		
+		<span id="track_number<?php echo $OrderId; ?>" title="Click to edit"><?php echo (($_html = $_column->getRowField($_item)) != '' ? $_html : '&nbsp;') ?></span>
+		
+					<?php } }?>
+					
+					</td>
+					
+					
+                    
+		
+		<?php }else{ ?>
+			
+			        <td <?php echo ($_rowspan ? 'rowspan="' . $_rowspan . '" ' : '') ?>class="<?php echo $_column->getCssProperty() ?> <?php echo ++$i==$numColumns?'last':'' ?>"><?php if($columnId == "real_order_id"){?><span id="order_name<?php echo $OrderId; ?>" title="Click to edit"><?php } ?><?php if($columnId == "status"){?><span id="edit_order_status_<?php echo $OrderId; ?>" title="Click to edit"><?php } ?><?php echo (($_html = $_column->getRowField($_item)) != '' ? $_html : '&nbsp;') ?><?php if($columnId == "real_order_id"){?></span><?php } ?>
+						<?php if($columnId == "status"){?></span><?php } ?>
+                    </td>
+					
+					
+					<?php } ?>
+					
+					
+					<?php if($columnId == "status"){?>
+						<script type="text/javascript">
+					new Ajax.InPlaceCollectionEditor('edit_order_status_<?php echo $OrderId; ?>', '<?php echo $this->		getUrl("ordermanager/adminhtml_ordereditor/saveinvoicestatus/field/order_status/")."order_id/".$OrderId ; ?>',{okText: '', cancelText:'.....',highlightColor:'#E2F1B1',
+collection: [ <?php echo $str; ?>] 
+
+});
+			</script>
+					<?php } ?>
+
+			<?php if($columnId == "real_order_id"){?>
+			
+					<script type="text/javascript">
+								new Ajax.InPlaceEditor('order_name<?php echo $OrderId; ?>', '<?php echo $this->getUrl("ordermanager/adminhtml_ordereditor/saveinvoicestatus/field/order_name/")."order_id/".$OrderId ; ?>',{okText: '', cancelText:'.....',highlightColor:'#E2F1B1',field_type : 'textbox'});
+							</script>
+	 
+					<?php } ?>
+					
+                    <?php if ($this->shouldRenderEmptyCell($_item, $_column)):?>
+                        <td colspan="<?php echo $this->getEmptyCellColspan($_item)?>" class="last"><?php echo $this->getEmptyCellLabel()?></td>
+                    <?php endif;?>
+                <?php endif;?>
+
+            <?php endforeach; ?>
+            </tr>
+			
+			
+            <?php if ($_multipleRows = $this->getMultipleRows($_item)):?>
+                <?php foreach ($_multipleRows as $_i):?>
+                <tr>
+                    <?php $i=0;foreach ($this->getMultipleRowColumns($_i) as $_column): ?>
+                        <td class="<?php echo $_column->getCssProperty() ?> <?php echo ++$i==$numColumns-1?'last':'' ?>">
+                            <?php echo (($_html = $_column->getRowField($_i)) != '' ? $_html : '&nbsp;') ?>
+                        </td>
+                    <?php endforeach; ?>
+                </tr>
+                <?php endforeach;?>
+            <?php endif;?>
+
+            <?php if ($this->shouldRenderSubTotal($_item)): ?>
+                <tr class="subtotals">
+                    <?php $i = 0; foreach ($this->getSubTotalColumns() as $_column): ?>
+                        <td class="<?php echo $_column->getCssProperty() ?> <?php echo ++$i == $numColumns ? 'last' : '' ?>">
+                            <?php echo ($_column->hasSubtotalsLabel() ? $_column->getSubtotalsLabel() :
+                                $_column->getRowField($this->getSubTotalItem($_item))
+                            );
+                            ?>
+                        </td>
+                    <?php endforeach; ?>
+                </tr>
+            <?php endif; ?>
+        <?php endforeach; ?>
+        <?php elseif ($this->getEmptyText()): ?>
+            <tr>
+                <td class="empty-text <?php echo $this->getEmptyTextClass() ?>" colspan="<?php echo $numColumns ?>"><?php echo $this->getEmptyText() ?></td>
+            </tr>
+        <?php endif; ?>
+        </tbody>
+
+    </table>
+    </div>
+</div>
+<?php if($this->canDisplayContainer()): ?>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    <?php echo $this->getJsObjectName() ?> = new varienGrid('<?php echo $this->getId() ?>', '<?php echo $this->getGridUrl() ?>', '<?php echo $this->getVarNamePage() ?>', '<?php echo $this->getVarNameSort() ?>', '<?php echo $this->getVarNameDir() ?>', '<?php echo $this->getVarNameFilter() ?>');
+    <?php echo $this->getJsObjectName() ?>.useAjax = '<?php echo $this->getUseAjax() ?>';
+    <?php if($this->getRowClickCallback()): ?>
+        <?php echo $this->getJsObjectName() ?>.rowClickCallback = <?php echo $this->getRowClickCallback() ?>;
+    <?php endif; ?>
+    <?php if($this->getCheckboxCheckCallback()): ?>
+        <?php echo $this->getJsObjectName() ?>.checkboxCheckCallback = <?php echo $this->getCheckboxCheckCallback() ?>;
+    <?php endif; ?>
+    <?php if($this->getRowInitCallback()): ?>
+        <?php echo $this->getJsObjectName() ?>.initRowCallback = <?php echo $this->getRowInitCallback() ?>;
+        <?php echo $this->getJsObjectName() ?>.initGridRows();
+    <?php endif; ?>
+    <?php if($this->getMassactionBlock()->isAvailable()): ?>
+    <?php echo $this->getMassactionBlock()->getJavaScript() ?>
+    <?php endif ?>
+    <?php echo $this->getAdditionalJavaScript(); ?>
+//]]>
+</script>
+<?php endif; ?>
+<?php endif ?>
+
+<!-- broadcast message div-->
+
+<script>
+
+function getResponseText(transport) {
+	if (transport && transport.responseText){
+		try{
+			response = eval('(' + transport.responseText + ')');
+		}
+		catch (e) {
+			response = {};
+		}
+	}
+	return response;
+}
+
+function bradcastMessage()
+	{
+		bradcastMessageVal = new varienForm('bradcastMessageForm');
+		if(bradcastMessageVal.validate())
+		{
+			var proceed = confirm ("Are you sure, it will send message to selected order's customers ?")
+			if (proceed)
+			{
+				var params = {};   	
+				var $form = $("bradcastMessageForm");
+					var str = $("bradcastMessageForm").serialize();
+			
+				//send request for saving
+						new Ajax.Request('	<?php echo Mage::getModel('adminhtml/url')->getUrl('ordermanager/adminhtml_ordereditor/bradcastMessage') ?>', {
+							method: 'post',
+							parameters: str,
+							onSuccess: function(transport) {
+			
+								var response = getResponseText(transport);
+								if(response.is_success)
+								{
+									document.getElementById('history_comment_broad').value = '';
+									document.getElementById('bradcastmessage').style.display = 'none';
+									alert(response.message); 
+								}
+								else
+								{
+ 									document.getElementById('history_comment_broad').value = '';
+									document.getElementById('bradcastmessage').style.display = 'none';
+									alert(response.message); 
+								}
+							},
+							
+							onFailure: function()
+							{	
+								
+							}
+			
+			
+						});	
+			}
+		}
+	
+	}
+</script>
+<script>
+	function showBroadcastForm()
+	{	
+		var allowBroadcast = "<?php echo Mage::getStoreConfig('orderview/broadcast_mng/allow_broadcast');?>";
+		if(allowBroadcast == 1)
+		{
+ 			document.getElementById('bradcastmessage').style.display = 'block'
+		}else{
+			var disablemsg = '<?php echo $this->helper("sales")->__("Sending Broadcast Message is disabled from system>config");?>';
+			alert(disablemsg);
+		}
+	}
+	function hideBroadcastForm()
+	{	
+		document.getElementById('bradcastmessage').style.display = 'none'
+	}
+</script>
+
+
+
+
+<script>
+function updateCustomer(order_id)
+{
+	gridUpdateCustomer = new varienForm('gridUpdateCustomer');
+	if(gridUpdateCustomer.validate())
+	{
+				var params = {};   	
+				var $form = $("gridUpdateCustomer");
+				var str = $("gridUpdateCustomer").serialize();
+		
+				var shippingData = new Object();
+				shippingData.type = 'shippingData';
+				params['shippingData'] = Object.toJSON(shippingData);
+
+				//send request for saving
+				new Ajax.Request('	<?php echo Mage::getModel('adminhtml/url')->getUrl('ordermanager/adminhtml_ordereditor/updatecustomer') ?>', {
+					method: 'post',
+					parameters: str,
+					onSuccess: function(transport) {
+	
+						if(transport.responseText == 'Successfully updated.') {
+							var hideId = 's_'+order_id;
+							document.getElementById('history_comment').value = '';
+							document.getElementById(hideId).style.display = 'none';
+							alert('<?php echo $this->helper('sales')->__('Customer was updated Successfully') ?>'); 
+						} else {
+							 
+						}
+					},
+					
+					onFailure: function()
+					{	
+						alert('<?php echo $this->helper('sales')->__('Customer Not Updated') ?>');  
+					}
+	
+	
+				});	
+		}	
+
+}
+</script>
+<script>
+	function showSpeakDetail(order_id)
+	{	
+		document.getElementById(order_id).style.display = 'block'
+	}
+	function hideSpeakDetail(order_id)
+	{	
+		document.getElementById(order_id).style.display = 'none'
+	}
+ function showHowUse(read_id)
+	{	
+		document.getElementById(read_id).style.display = 'block'
+	}
+	function hideHowUse(read_id)
+	{	
+		document.getElementById(read_id).style.display = 'none'
+	}
+</script>
+<?php if(Mage::getStoreConfig('orderview/general/fixed_header')){?>
+	<script>
+		jQuery(document).ready(function () {
+			jQuery("#sales_order_grid_table").freezeHeader();
+		});
+	</script>
+<?php } ?>

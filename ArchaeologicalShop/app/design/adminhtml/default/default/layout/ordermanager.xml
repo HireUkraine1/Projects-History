@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<layout> 
+
+
+  <!-- system -->
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addCss"><name>ordermanager/common.css</name></action>
+            <action method="addCss"><name>ordermanager/jquery-ui.css</name></action>
+            <action method="addCss"><name>ordermanager/ui.multiselect.css</name></action>
+            <action method="addJs"><script>ordermanager/jquery-1.10.2.min.js</script></action>
+			<action method="addJs"><script>ordermanager/jquery-ui-1.10.3.min.js</script></action>
+			
+			<action method="addJs"><script>ordermanager/system_order_grid.js</script></action>
+			<action method="addJs"><script>ordermanager/ui.multiselect.js</script></action>
+        </reference>
+    </adminhtml_system_config_edit>
+
+    <adminhtml_sales_order_view>
+       
+        <reference name="order_history">            
+            <action method="setTemplate"><template>ordermanager/history.phtml</template></action>
+        </reference>
+     </adminhtml_sales_order_view>
+     <adminhtml_sales_order_addcomment>
+        <block type="adminhtml/sales_order_view_history" name="order_history" template="ordermanager/history.phtml" output="toHtml"/>
+    </adminhtml_sales_order_addcomment>
+	
+    <ordermanager_adminhtml_ordereditor_deletesinglehistory>
+        <block type="adminhtml/sales_order_view_history" name="order_history" template="ordermanager/history.phtml" output="toHtml"/>
+    </ordermanager_adminhtml_ordereditor_deletesinglehistory>
+
+    <ordermanager_adminhtml_ordereditor_deleteallhistory>
+        <block type="adminhtml/sales_order_view_history" name="order_history" template="ordermanager/history.phtml" output="toHtml"/>
+    </ordermanager_adminhtml_ordereditor_deleteallhistory>
+	
+	<ordermanager_adminhtml_ordereditor_savewithdel>
+        <block type="adminhtml/sales_order_view_history" name="order_history" template="ordermanager/history.phtml" output="toHtml"/>
+    </ordermanager_adminhtml_ordereditor_savewithdel>
+	
+    <ordermanager_adminhtml_ordereditor_addcomment>
+		<reference name="order_history">            
+              <block type="adminhtml/sales_order_view_history" name="order_history" template="ordermanager/history.phtml" output="toHtml"/>
+        </reference>
+    </ordermanager_adminhtml_ordereditor_addcomment>
+	
+	    <adminhtml_sales_order_status_new>
+		 <reference name="head">
+		   <!-- <action method="addJs"><file>jscolor/jscolor.js</file></action>-->
+<action method="addJs"><file>cjscolor/procolor.compressed.js</file></action>
+		  </reference>
+    </adminhtml_sales_order_status_new>
+    <adminhtml_sales_order_status_edit>
+		  <reference name="head">
+	  		 <!-- <action method="addJs"><file>jscolor/jscolor.js</file></action>-->
+<action method="addJs"><file>cjscolor/procolor.compressed.js</file></action>
+	  	 </reference>
+    </adminhtml_sales_order_status_edit>
+	
+ </layout>
