@@ -33,6 +33,8 @@ The list of the projects is sorted by the date of release of the project
 
 **[ST](#ST)**
 
+**[GatewayManagement](#GatewayManagement)**
+
 
 ## <a name="AwsStatisticPanel"></a>AwsStatisticPanel
 
@@ -277,3 +279,14 @@ API: MusicBrainz, TicketNetwork, LastFm;
 
 [View simplified code](https://github.com/HireUkraine1/Projects-History/tree/master/ST)
 
+## <a name="GatewayManagement"></a>GatewayManagement
+
+Simple module for gateway management.
+
+Used technologies:
+
+Framework Laravel 5.3;
+
+RDBMS: MySQL;
+
+[View simplified code](https://github.com/HireUkraine1/Projects-History/tree/master/GatewayManagement)
