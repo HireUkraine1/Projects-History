@@ -1,0 +1,42 @@
+*.ipr
+*.iml
+.idea/
+
+### Laravel ###
+vendor/
+node_modules/
+npm-debug.log
+
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+public/storage
+public/hot
+storage/*.key
+.env.*.php
+.env.php
+.env
+Homestead.yaml
+Homestead.json
+
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+.sass-cache/
+
+worker.log

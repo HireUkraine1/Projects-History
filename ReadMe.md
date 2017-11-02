@@ -3,6 +3,8 @@
 Here is the list of the projects that are not under NDA and test tasks. Besides,  all the projects are cleared of the standart parts, and include only essential parts of the project. 
 The list of the projects is sorted by the date of release of the project
 
+**[SEO CMS](#SEOCMS)**
+
 **[AwsStatisticPanel](#AwsStatisticPanel)**
 
 **[BarcodeWPPalgin](#BarcodeWPPalgin)**
@@ -34,6 +36,24 @@ The list of the projects is sorted by the date of release of the project
 **[ST](#ST)**
 
 **[GatewayManagement](#GatewayManagement)**
+
+
+## <a name="SEOCMS"></a>SEO CMS
+
+Simple SEO optimized content management system
+
+Used technologies:
+
+Framework: Laravel5.4;
+
+Frontend HTML/CSS, Jquery; 
+
+RDBMS: Postgres
+
+Queue: RabbitMQ; 
+
+
+[View simplified code](https://github.com/HireUkraine1/Projects-History/tree/master/SEOCMS)
 
 
 ## <a name="AwsStatisticPanel"></a>AwsStatisticPanel

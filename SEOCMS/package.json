@@ -1,0 +1,29 @@
+{
+  "private": true,
+  "devDependencies": {
+    "axios": "^0.16.2",
+    "bootstrap-sass": "^3.3.7",
+    "browser-sync": "^2.18.13",
+    "cross-env": "^5.0.1",
+    "grunt": "^1.0.1",
+    "grunt-critical": "^0.3.0",
+    "grunt-npm-install": "^0.3.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.1.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sass-themes": "^2.0.1",
+    "gulp-uglify": "^3.0.0",
+    "jquery": "^3.1.1",
+    "laravel-mix": "^1.0",
+    "lodash": "^4.17.4",
+    "vue": "^2.1.10"
+  },
+  "dependencies": {
+    "gulp-sass": "^3.1.0",
+    "critical": "^0.9.1",
+    "gulp-install": "^1.1.0"
+  }
+}
